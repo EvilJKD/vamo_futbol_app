@@ -1,0 +1,7 @@
+{
+  "name": "Vamo_FutbolApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
