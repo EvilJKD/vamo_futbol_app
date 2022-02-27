@@ -1,0 +1,46 @@
+<ion-header class="ion-padding-horizontal">
+  <ion-toolbar>
+    <ion-icon slot="start" name="arrow-back-outline" size="large" (click)="backButtonClick()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="height-100 centerV">
+    <ion-text color="darkgreen">
+      <h2><b>Create an account</b></h2>
+
+    </ion-text>
+
+    <ion-item class="ion-no-padding ion-no-border" lines="none">
+      <ion-label position="stacked" class="ion-padding-bottom ultrathin">Full Name</ion-label>
+      <ion-input type="text" placeholder="Diego Veintimilla" class="ion-padding-vertical currentInput"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none">
+      <ion-label position="stacked" class="ion-padding-bottom">Email</ion-label>
+      <ion-input type="text" class="ion-padding-vertical currentInput"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none">
+      <ion-label position="stacked" class="ion-padding-bottom">ID</ion-label>
+      <ion-input type="number" class="ion-padding-vertical currentInput"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none">
+      <ion-label position="stacked" class="ion-padding-bottom">Password</ion-label>
+      <ion-input type="password" class="ion-padding-vertical currentInput"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" shape="round" color="dark" style="margin-top: 10%;" class="ion-padding-vertical vh-btn" routerLink="/profilesetup">
+      SIGN UP
+    </ion-button>
+    <div class="centerVH ion-no-padding" style="text-align: center;">
+      <ion-text color="medium">
+        <p color="">By tapping "Sign Up" you accept our
+          <a class="hl-dg"><b>Terms and conditions</b></a>
+        </p>
+      </ion-text>
+        
+    </div>
+  </div>
+</ion-content>

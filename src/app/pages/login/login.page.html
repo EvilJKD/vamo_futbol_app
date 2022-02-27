@@ -1,15 +1,17 @@
 <ion-content class="ion-padding">
-  <div class="height-60 centerVertically">
-    <div class="height-60 centerVertically"> 
+  <div class="height-60 centerVH">
+    <div class="height-60 centerVH"> 
       <ion-img src="assets/pinShape.svg"></ion-img>
-      <ion-title class="ion-padding ion-margin" class="titleSize" size="large">Welcome to Vamo'</ion-title>
+      <ion-text color="dark">
+        <h1><b>Welcome to Vamo'</b></h1>
+      </ion-text>
     </div>
   </div>
-  <div class="height-40 centerVertically">  
-      <ion-button expand="block" shape="round" color="darkgreen">
+  <div class="height-40 centerVH">  
+      <ion-button expand="block" shape="round" color="darkgreen" class="ion-padding-vertical vh-btn" routerLink="/signin">
         Login With Email
       </ion-button>
-      <ion-button expand="block" shape="round" color="medium">
+      <ion-button expand="block" shape="round" color="medium" class="ion-padding-vertical vh-btn"  routerLink="/signp">
         Create an Account
       </ion-button>
   </div>

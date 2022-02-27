@@ -1,0 +1,12 @@
+:root{
+    --ion-color-darkgreen: #04764e;
+    --ion-color-darkgreen-rgb: 4, 118, 78;
+    --ion-color-darkgreen-contrast: #ffffff;
+    --ion-color-darkgreen-contrast-rgb: 255, 255, 255;
+    --ion-color-darkgreen-shade: #02432c;
+    --ion-color-darkgreen-tint: #06c280;
+}
+
+.ion-input{
+    border-bottom: var(--ion-color-darkgreen);
+}

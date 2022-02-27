@@ -60,6 +60,9 @@
 .microtext{
     font-size: x-small !important;
 }
+.smalltext {
+    font-size: small !important;
+}
 .thin{
     font-weight: 300 !important;
 }
@@ -74,10 +77,16 @@
 }
 
 /*INPUTS*/
+.currentInput{
+    border-bottom: 1px solid var(--ion-color-darkgreen-tint) !important;
+}
+
 .currentInput:hover, .currentInput:focus{
-    
-    border-bottom: var(--ion-color-darkgreen) !important;
-    border-width: 100px !important;
+    border-bottom: 1px solid var(--ion-color-darkgreen-shade) !important;
+}
+
+.item-has-focus{
+    --highlight-background: var(--ion-color-darkgreen);
 }
 
 /*Tamaños y orientación*/
@@ -113,4 +122,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+
+
+/*Buttons*/
+.vh-btn{
+    height: fit-content;
 }

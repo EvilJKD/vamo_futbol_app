@@ -6,23 +6,22 @@
     </ion-text>
     <h5>Juega fútbol cuando quieras y en donde quieras. ¡Sé parte del futuro del fútbol!</h5>
 
-    <ion-item class="ion-no-padding ion-no-border"> 
+    <ion-item class="ion-no-padding ion-no-border" lines="none"> 
       <ion-label position="stacked" class="ion-padding-bottom ultrathin">Email</ion-label>
       <ion-input type="text" placeholder="vamo@soccer.com" class="ion-padding-vertical currentInput"></ion-input>
     </ion-item>
-    <ion-item class="ion-no-padding ion-no-border ion-padding-top"> 
+    <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none"> 
       <ion-label position="stacked" class="ion-padding-bottom">Password</ion-label>
-      <ion-input type="password" class="ion-padding-vertical"></ion-input>
+      <ion-input type="password" class="ion-padding-vertical currentInput"></ion-input>
     </ion-item>
 
-    <ion-button  expand="block" shape="round" color="darkgreen" style="margin-top: 10%;" class="ion-padding-vertical">
+    <ion-button  expand="block" shape="round" color="darkgreen" style="margin-top: 10%;" class="ion-padding-vertical vh-btn" routerLink="/profilesetup">
       LOGIN
     </ion-button>
     <div class="centerVH ion-no-padding">
       <div>
         <p>Forgot password?
           <a class="hl-dg"><b>Reset Here</b></a>
-          
         </p>
       </div>
       
@@ -32,7 +31,7 @@
           <h6>Don't have an account?</h6>
         </ion-text>
     </div>
-    <ion-button expand="block" shape="round" color="dark">
+    <ion-button expand="block" shape="round" color="dark" class="ion-padding-vertical vh-btn"  routerLink="/signup">
       CREATE AN ACCOUNT
     </ion-button>
   </div>

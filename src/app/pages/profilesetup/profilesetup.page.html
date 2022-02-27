@@ -1,0 +1,49 @@
+<ion-header class="ion-padding-horizontal">
+  <ion-toolbar>
+    <ion-icon slot="start" name="arrow-back-outline" size="large" (click)="backButtonClick()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="height-100 centerV">
+    <ion-text color="darkgreen" style="text-align: center;">
+      <h2><b>Upload a <br>profile picture</b></h2>
+    </ion-text>
+    <ion-text color="medium" style="text-align: center;" class="ion-margin-horizontal ion-margin-vertical">
+      <h6>Sube una foto tuya o puedes seleccionar un avatar.</h6>
+    </ion-text>
+
+    <div class="centerVH ion-padding-vertical" style="text-align: center;">
+      <div class="bgSelectedImg centerVH" style="column-gap: 10px;">
+        <img src="assets/sampleAvatar.jpg" class="currentImg" >
+        <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
+          <p>Diego Veintimilla</p>
+          <ion-text style="color: var(--ion-color-darkgreen-tint);">
+            <p>1717171717</p>
+          </ion-text>
+        </ion-text>
+      </div>
+    </div>
+
+    <div class="centerVH">
+      <ion-text color="dark">
+        <p>Swipe to Select</p>
+      </ion-text>
+    </div>
+
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let card of [0,1,2,3,4,5,6]" style="width: 100px; height: auto; justify-content: center; align-items: center;">
+        <ion-img src="assets/sampleAvatar.jpg" style="border-radius: 15%; overflow: hidden; margin: 10% 15%;"></ion-img>
+      </ion-slide>
+    </ion-slides>
+
+    <div style="display: inline-flex; flex-wrap: wrap; justify-content: space-evenly;">
+      <ion-button shape="round" color="medium" fill="outline" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn">
+        SKIP
+      </ion-button>
+      <ion-button shape="round" color="darkgreen" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn">
+        CONFIRM
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
