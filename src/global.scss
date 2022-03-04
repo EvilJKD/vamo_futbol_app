@@ -34,12 +34,20 @@
 
 
 :root{
+
     --ion-color-darkgreen: #04764e;
     --ion-color-darkgreen-rgb: 4, 118, 78;
     --ion-color-darkgreen-contrast: #ffffff;
     --ion-color-darkgreen-contrast-rgb: 255, 255, 255;
     --ion-color-darkgreen-shade: #02432c;
     --ion-color-darkgreen-tint: #06c280;
+    
+    --ion-color-gray: #373737;
+    --ion-color-gray-rgb: 55, 55, 55;
+    --ion-color-gray-contrast: #ffffff;
+    --ion-color-gray-contrast-rgb: 255, 255, 255;
+    --ion-color-gray-shade: #2b2a2a;
+    --ion-color-gray-tint: #242323;
 }
 
 
@@ -51,6 +59,16 @@
     --ion-color-contrast-rgb: var(--ion-color-darkgreen-contrast-rgb);
     --ion-color-shade: var(--ion-color-darkgreen-shade);
     --ion-color-tint: var(--ion-color-darkgreen-tint);
+}
+
+/*Gris Oscuro - Personalizado*/
+.ion-color-gray{
+    --ion-color-base: var(--ion-color-gray);
+    --ion-color-base-rgb: var(--ion-color-gray-rgb);
+    --ion-color-contrast: var(--ion-color-gray-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-gray-contrast-rgb);
+    --ion-color-shade: var(--ion-color-gray-shade);
+    --ion-color-tint: var(--ion-color-gray-tint);
 }
 
 /*Texts Weights & Sizes*/
@@ -123,8 +141,6 @@
     justify-content: center;
     flex-direction: column;
 }
-
-
 
 /*Buttons*/
 .vh-btn{
