@@ -1,0 +1,18 @@
+<ion-toolbar color="dark" style="border-radius: 0px 0px 15px 15px;" class="ion-padding-horizontal">
+  <ion-icon slot="start" name="arrow-back-outline" size="large" (click)="backButtonClick()"></ion-icon>
+  <div style="height:15vh;" class="centerVH">
+    <h5 class="poppins fw-sb">Horarios</h5>
+  </div>
+</ion-toolbar>
+
+<ion-content class="ion-padding">
+  <ion-item lines="none" >
+    <ion-label position="stacked" class="ion-padding-bottom thin" color="gray">Horas Disponibles</ion-label>
+    <ion-select placeholder="Escoge una modalidad" interface="popover">
+		  <ion-select-option value="tarde16">16h00-17h20</ion-select-option>
+		  <ion-select-option value="tarde17">17h30-18h50</ion-select-option>
+		  <ion-select-option value="tarde19">19h00-20h20</ion-select-option>
+      <ion-select-option value="tarde20">20h30-21h50</ion-select-option>
+	  </ion-select>
+  </ion-item>
+</ion-content>

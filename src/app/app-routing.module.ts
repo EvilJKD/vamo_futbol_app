@@ -21,6 +21,18 @@ const routes: Routes = [
   {
     path: 'profilesetup',
     loadChildren: () => import('./pages/profilesetup/profilesetup.module').then( m => m.ProfilesetupPageModule)
+  },
+  {
+    path: 'fields',
+    loadChildren: () => import('./pages/fields/fields.module').then( m => m.FieldsPageModule)
+  },
+  {
+    path: 'addfield',
+    loadChildren: () => import('./pages/addfield/addfield.module').then( m => m.AddfieldPageModule)
+  },
+  {
+    path: 'horarios',
+    loadChildren: () => import('./pages/horarios/horarios.module').then( m => m.HorariosPageModule)
   }
 ];
 @NgModule({
