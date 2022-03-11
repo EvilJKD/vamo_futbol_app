@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'horarios',
     loadChildren: () => import('./pages/horarios/horarios.module').then( m => m.HorariosPageModule)
+  },{
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 @NgModule({
