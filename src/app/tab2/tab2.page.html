@@ -1,17 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+<ion-header mode="md">
+  <ion-toolbar color="black" class="padding-toolbar">
+    <ion-title>Historial</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card class="card-especial">
+    <div class="header-especial">
+      <ion-item color="marfil" class="elemento" >
+        <ion-card-title color="darkgreen" class="texto-titulo" >Cancha USFQ</ion-card-title>
+      </ion-item>
+
+    </div>
+    
+    <ion-footer>
+      <ion-row>
+        <ion-col>
+          <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
+            <p class="color-azul">2022/02/20<br/>7-8pm</p></a>
+        </ion-col>
+        <ion-col>
+          <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
+            <p class="color-azul">Cumbaya</p></a>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+
 </ion-content>

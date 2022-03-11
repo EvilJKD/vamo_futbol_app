@@ -1,17 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+<ion-header mode="md">
+  <ion-toolbar color="black" class="padding-toolbar">
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="height-100 centerV">
+
+    <div class="centerVH ion-padding-vertical" style="text-align: center;">
+      <div class="bgSelectedImg centerVH" style="column-gap: 10px;">
+        <img src="assets/sampleAvatar.jpg" class="currentImg" >
+        <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
+          <p>Diego Veintimilla</p>
+          <ion-text style="color: var(--ion-color-darkgreen-tint);">
+            <p>1717171717</p>
+          </ion-text>
+        </ion-text>
+      </div>
+    </div>
+
+    <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+      <ion-label position="stacked" class="ion-padding-bottom ultrathin">Email</ion-label>
+      <ion-input type="text" placeholder="vamo@soccer.com" class="ion-padding-vertical currentInput"></ion-input>
+    </ion-item>
+    <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none"> 
+      <ion-label position="stacked" class="ion-padding-bottom">Password</ion-label>
+      <ion-input type="password" class="ion-padding-vertical currentInput"></ion-input>
+    </ion-item>
+
+    <div style="display: inline-flex; flex-wrap: wrap; justify-content: space-evenly;">
+      <ion-button shape="round" color="medium" fill="outline" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn">
+        CANCEL
+      </ion-button>
+      <ion-button shape="round" color="darkgreen" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn">
+        CONFIRM
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
 </ion-content>

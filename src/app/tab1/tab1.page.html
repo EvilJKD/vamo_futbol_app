@@ -1,17 +1,116 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header mode="md">
+  <ion-toolbar color="darkgreen padding-uno">
+    <h6>Eligue la fecha en la que quieres jugar</h6>
   </ion-toolbar>
+
+  <ion-toolbar color="darkgreen" class="toolbar-espacial padding-uno-esp">
+    <h2 class="ion-text-start">Iván</h2>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- <ion-toolbar color="darkgreen" class="toolbar-espacial padding-uno">
+    <h6>Eligue la fecha en la que quieres jugar
+      <br>
+      <h2>Iván</h2>
+    </h6>
+    <ion-buttons slot="end">
+
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    
+    
+  </ion-toolbar> -->
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" style="padding-left: 28px;">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ul class="scroll" >
+    <div class="cards">
+      <div class="card">
+        <div class="centra">
+          <span class="number">15</span>
+          <span class="text">Friday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="centra">
+          <span class="number">15</span>
+          <span class="text">Friday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="centra">
+          <span class="number">15</span>
+          <span class="text">Friday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="centra">
+          <span class="number">15</span>
+          <span class="text">Friday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="centra">
+          <span class="number">15</span>
+          <span class="text">Friday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="centra">
+          <span class="number">15</span>
+          <span class="text">Friday</span>
+        </div>
+      </div>
+    </div>
+  </ul>
+
+  <ion-card class="card-especial">
+    <ion-item color="marfil">
+      <ion-buttons slot="start" >
+        <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
+        <ion-text>4/12</ion-text>
+      </ion-buttons>
+      <ion-card-title color="darkgreen">Awesome Title</ion-card-title>
+    </ion-item>
+    <ion-footer>
+      <ion-row>
+        <ion-col>
+          <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
+            <p class="color-azul">20 Feb<br />7-8pm</p></a>
+        </ion-col>
+        <ion-col>
+          <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
+            <p class="color-azul">4km<br />2min</p></a>
+        </ion-col>
+        <ion-col>
+          <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
+            <p class="color-azul">Cumbaya</p></a>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+
+
 </ion-content>

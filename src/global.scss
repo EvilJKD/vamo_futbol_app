@@ -48,6 +48,27 @@
     --ion-color-gray-contrast-rgb: 255, 255, 255;
     --ion-color-gray-shade: #2b2a2a;
     --ion-color-gray-tint: #242323;
+
+    --ion-color-black: #000000;
+    --ion-color-black-rgb: 0, 0, 0;
+    --ion-color-black-contrast: #ffffff;
+    --ion-color-black-contrast-rgb: 255, 255, 255;
+    --ion-color-black-shade: #2b2a2a;
+    --ion-color-black-tint: #242323;
+
+    --ion-color-marfil: #F3F3F3;
+	--ion-color-marfil-rgb: 243,243,243;
+	--ion-color-marfil-contrast: #000000;
+	--ion-color-marfil-contrast-rgb: 0,0,0;
+	--ion-color-marfil-shade: #d6d6d6;
+	--ion-color-marfil-tint: #f4f4f4;
+
+    --ion-color-azul: #172A6B;
+	--ion-color-azul-rgb: 23,42,107;
+	--ion-color-azul-contrast: #ffffff;
+	--ion-color-azul-contrast-rgb: 255,255,255;
+	--ion-color-azul-shade: #14255e;
+	--ion-color-azul-tint: #2e3f7a;
 }
 
 
@@ -69,6 +90,35 @@
     --ion-color-contrast-rgb: var(--ion-color-gray-contrast-rgb);
     --ion-color-shade: var(--ion-color-gray-shade);
     --ion-color-tint: var(--ion-color-gray-tint);
+}
+
+/*Black - Personalizado*/
+.ion-color-black{
+    --ion-color-base: var(--ion-color-black);
+    --ion-color-base-rgb: var(--ion-color-black-rgb);
+    --ion-color-contrast: var(--ion-color-black-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-black-contrast-rgb);
+    --ion-color-shade: var(--ion-color-black-shade);
+    --ion-color-tint: var(--ion-color-black-tint);
+}
+
+/*Marfil - Personalizado*/
+.ion-color-marfil {
+    --ion-color-base: var(--ion-color-marfil);
+    --ion-color-base-rgb: var(--ion-color-marfil-rgb);
+    --ion-color-contrast: var(--ion-color-marfil-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-marfil-contrast-rgb);
+    --ion-color-shade: var(--ion-color-marfil-shade);
+    --ion-color-tint: var(--ion-color-marfil-tint);
+  }
+
+  .ion-color-azul {
+	--ion-color-base: var(--ion-color-azul);
+	--ion-color-base-rgb: var(--ion-color-azul-rgb);
+	--ion-color-contrast: var(--ion-color-azul-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-azul-contrast-rgb);
+	--ion-color-shade: var(--ion-color-azul-shade);
+	--ion-color-tint: var(--ion-color-azul-tint);
 }
 
 /*Texts Weights & Sizes*/
@@ -145,4 +195,66 @@
 /*Buttons*/
 .vh-btn{
     height: fit-content;
+}
+
+// Profile picture
+.bgSelectedImg{
+    background-color: #373737;
+    width: 45%;
+    height: 120%;
+    border-radius: 15%;
+}
+
+.currentImg{
+    max-width: 85%;
+    border-radius: 15%;
+    position: relative;
+    top: -15%;
+}
+
+.img-slide{
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+
+// Titulo
+ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.ion-input{
+    border-bottom: var(--ion-color-darkgreen);
+}
+
+
+ion-header, ion-header ion-toolbar:last-child {
+    border-radius:0 0 30px 30px;
+    overflow:hidden;
+}
+
+h6{
+    font-size: 15px;
+}
+
+.toolbar-espacial{
+    border-radius:0 0 30px 30px;
+}
+
+.padding-toolbar{
+    padding: 0px 28px 59px 28px;
+}
+
+.card-especial{
+    border-radius:18px 18px 18px 18px;
+    
 }

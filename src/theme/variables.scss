@@ -74,7 +74,38 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-color-darkgreen: #04764e;
+  --ion-color-darkgreen-rgb: 4, 118, 78;
+  --ion-color-darkgreen-contrast: #ffffff;
+  --ion-color-darkgreen-contrast-rgb: 255, 255, 255;
+  --ion-color-darkgreen-shade: #02432c;
+  --ion-color-darkgreen-tint: #06c280;
+  
+  --ion-color-gray: #373737;
+  --ion-color-gray-rgb: 55, 55, 55;
+  --ion-color-gray-contrast: #ffffff;
+  --ion-color-gray-contrast-rgb: 255, 255, 255;
+  --ion-color-gray-shade: #2b2a2a;
+  --ion-color-gray-tint: #242323;
+
+  --ion-color-black: #000000;
+  --ion-color-black-rgb: 0, 0, 0;
+  --ion-color-black-contrast: #ffffff;
+  --ion-color-black-contrast-rgb: 255, 255, 255;
+  --ion-color-black-shade: #2b2a2a;
+  --ion-color-black-tint: #242323;
+
+  //marfil
+  --ion-color-marfil: #F3F3F3;
+	--ion-color-marfil-rgb: 243,243,243;
+	--ion-color-marfil-contrast: #000000;
+	--ion-color-marfil-contrast-rgb: 0,0,0;
+	--ion-color-marfil-shade: #d6d6d6;
+	--ion-color-marfil-tint: #f4f4f4;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -233,4 +264,46 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+
+/*Verde Oscuro - Personalizado*/
+.ion-color-darkgreen{
+  --ion-color-base: var(--ion-color-darkgreen);
+  --ion-color-base-rgb: var(--ion-color-darkgreen-rgb);
+  --ion-color-contrast: var(--ion-color-darkgreen-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-darkgreen-contrast-rgb);
+  --ion-color-shade: var(--ion-color-darkgreen-shade);
+  --ion-color-tint: var(--ion-color-darkgreen-tint);
+}
+
+/*Gris Oscuro - Personalizado*/
+.ion-color-gray{
+  --ion-color-base: var(--ion-color-gray);
+  --ion-color-base-rgb: var(--ion-color-gray-rgb);
+  --ion-color-contrast: var(--ion-color-gray-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-gray-contrast-rgb);
+  --ion-color-shade: var(--ion-color-gray-shade);
+  --ion-color-tint: var(--ion-color-gray-tint);
+}
+
+/*Black - Personalizado*/
+.ion-color-black{
+  --ion-color-base: var(--ion-color-black);
+  --ion-color-base-rgb: var(--ion-color-black-rgb);
+  --ion-color-contrast: var(--ion-color-black-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-black-contrast-rgb);
+  --ion-color-shade: var(--ion-color-black-shade);
+  --ion-color-tint: var(--ion-color-black-tint);
+}
+
+/*Marfil - Personalizado*/
+  .ion-color-marfil {
+    --ion-color-base: var(--ion-color-marfil);
+    --ion-color-base-rgb: var(--ion-color-marfil-rgb);
+    --ion-color-contrast: var(--ion-color-marfil-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-marfil-contrast-rgb);
+    --ion-color-shade: var(--ion-color-marfil-shade);
+    --ion-color-tint: var(--ion-color-marfil-tint);
+  }
+
 }
