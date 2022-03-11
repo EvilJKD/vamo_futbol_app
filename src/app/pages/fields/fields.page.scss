@@ -1,0 +1,26 @@
+/*Gradient BG*/
+.gradient-green-bg {
+  background: rgb(4, 118, 78);
+  background: -moz-linear-gradient(
+    208deg,
+    rgba(4, 118, 78, 1) 0%,
+    rgba(6, 194, 128, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    208deg,
+    rgba(4, 118, 78, 1) 0%,
+    rgba(6, 194, 128, 1) 100%
+  );
+  background: linear-gradient(
+    208deg,
+    rgba(4, 118, 78, 1) 0%,
+    rgba(6, 194, 128, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#04764e",endColorstr="#06c280",GradientType=1);
+
+  --background: linear-gradient(
+    208deg,
+    rgba(4, 118, 78, 1) 0%,
+    rgba(6, 194, 128, 1) 100%
+  );
+}

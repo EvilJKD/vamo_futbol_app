@@ -1,0 +1,50 @@
+<ion-toolbar color="dark" style="border-radius: 0px 0px 15px 15px;" class="ion-padding-horizontal">
+  <ion-icon slot="start" name="arrow-back-outline" size="large" (click)="backButtonClick()"></ion-icon>
+  <div style="height:15vh;" class="centerVH">
+    <h5 class="poppins fw-sb">Añadir Cancha</h5>
+  </div>
+</ion-toolbar>
+<ion-card class="nameCard" >
+  <ion-item lines="none" >
+    <ion-label position="stacked" class="ion-padding-bottom ultrathin">Nombre</ion-label>
+    <ion-input type="text" placeholder="Cancha #1 | Lugar" class="ion-margin-vertical"></ion-input>
+  </ion-item>
+</ion-card>
+<ion-content class="ion-padding">
+  <div class="centerVH ">
+	<ion-button expand="block" color="darkgreen" class="poppins">
+		Ubicación Actual
+	</ion-button>
+  </div>
+
+  <ion-item lines="none" >
+    <ion-label position="stacked" class="ion-padding-bottom ultrathin">Dirección</ion-label>
+    <ion-input type="text" placeholder="Av. Siempre Viva 123"></ion-input>
+  </ion-item>
+  <ion-item lines="none" >
+    <ion-label position="stacked" class="ion-padding-bottom ultrathin">Cantidad de Jugadores</ion-label>
+    <ion-select placeholder="Escoge una modalidad" interface="popover">
+		<ion-select-option value="5v5">5 jugadores vs 5 jugadores</ion-select-option>
+		<ion-select-option value="7v7">7 jugadores vs 7 jugadores</ion-select-option>
+		<ion-select-option value="9v9">9 jugadores vs 9 jugadores</ion-select-option>
+	</ion-select>
+  </ion-item>
+  <ion-item lines="none" >
+    <ion-label position="stacked" class="ion-padding-bottom ultrathin">RUC</ion-label>
+    <ion-input type="number" placeholder="1111111111001" inputmode="numeric"></ion-input>
+  </ion-item>
+  <ion-item lines="none" >
+    <ion-label position="stacked" class="ion-padding-bottom ultrathin">Certificado de propiedad</ion-label>
+    <ion-input type="file" placeholder="Certificado.pdf"></ion-input>
+  </ion-item>
+  <div class="centerVH ion-no-padding" style="text-align: center; height: fit-content;">
+    <ion-button expand="block" shape="round" color="darkgreen" style="margin-top: 10%;" class="ion-padding-vertical vh-btn">
+    Enviar Solicitud de Aprovación
+    </ion-button>
+    <ion-text color="medium">
+      <p color="">Al enviar la solicitud de aprovación aceptas nuestros
+      <a class="hl-dg ultrathin"><b>términos y condiciones</b></a>
+      </p>
+	</ion-text>
+  </div>
+</ion-content>

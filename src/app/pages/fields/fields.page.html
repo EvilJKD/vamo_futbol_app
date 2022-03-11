@@ -1,0 +1,49 @@
+<ion-toolbar color="darkgreen" style="border-radius: 0px 0px 15px 15px;">
+  <div>
+    <ion-item lines="none" color="none">
+      <ion-text class="ion-padding">
+        <h6 class="poppins fw-l"><br>Agrega tus canchas</h6>
+        <h3 class="poppins fw-sb">Adrian</h3>
+      </ion-text>
+      
+    </ion-item>
+  </div>
+</ion-toolbar>
+
+<ion-content class="ion-padding">
+  <ion-text color="dark">
+    <h4 class="poppins">Canchas</h4>
+  </ion-text>
+
+  <ion-card class="myCard" *ngFor="let card of [0,1,2,3]">
+    <img
+      src="https://www.eluniverso.com/resizer/QmgcK3tMdjZk7VKvKL4N7MR9jaA=/1395x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/XEIAENUN2L4CESULTTKJJRXZPM.jpg"
+      alt="">
+    <div class="card-textOverlay">
+      <div class="card-textDiv">
+
+        <h5 class="poppins ion-padding-horizontal fw-l">Cancha USFQ {{card+1}}</h5>
+      </div>
+    </div>
+  </ion-card>
+<ion-card class="gradient-green-bg">
+  <ion-item class="gradient-green-bg">
+    <ion-thumbnail slot="start" style="height: auto; width: 32vw;" class="ion-margin-vertical">
+      <img src="assets/stadiumCartoon.svg" />
+    </ion-thumbnail>
+    <div class="centerV">
+      <ion-text>
+        <h4 class="poppins ion-padding-horizontal fw-l" style="color:white">AÑADE TU CANCHA</h4>
+      </ion-text>
+      <ion-button expand="block" fill="outline" shape="round" color="light">
+        Click me
+      </ion-button>
+    </div>
+    
+
+  </ion-item>
+</ion-card>
+  
+
+
+</ion-content>
