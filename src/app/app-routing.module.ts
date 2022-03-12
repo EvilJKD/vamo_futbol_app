@@ -37,6 +37,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'matches-detail',
+    loadChildren: () => import('./pages/matches-detail/matches-detail.module').then( m => m.MatchesDetailPageModule)
   }
 ];
 @NgModule({
