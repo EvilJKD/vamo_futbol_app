@@ -6,29 +6,16 @@
   padding: 0px 28px 2px 28px;
 }
 
-.cards {
-  position: relative;
-  margin-right: 10px;
-  display: inline-block;
-  border-color: #ff3366;
-  border-width: 1px; /* this allows you to adjust the thickness */
-  border-style: solid;
-  border-radius: 16px;
-  &:hover {
-    background: #04764e;
-  }
-}
 
-.card {
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  width: 64px;
-  height: 115px;
-  // background: #000000;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  text-align: center;
+  ion-title {
+    text-align: left;
+    
+  }
+  
+  ion-text {
+    margin-left:10px;
+    
+  }
 
   .centra {
     margin: 0;
@@ -54,7 +41,7 @@
     font-size: 25px;
     line-height: 100%;
   }
-}
+
 
 .scroll {
   // height: 100vh;
@@ -78,88 +65,4 @@ ion-text {
   margin-left: 10px;
 }
 
-.container {
-  display: table;
-  position: relative;
-  max-width: 30rem;
-  padding: 1em 1em 1em 0;
-  /* background: #111; */
-
-  color: #ed3;
-}
-.stat {
-  box-sizing: border-box;
-  width: calc(100% / 3);
-  float: left;
-  text-align: center;
-}
-
-.stat .label {
-  display: block;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #ff0000;
-}
-
-.stat .value {
-  display: block;
-  font-weight: 700;
-  font-size: 20px;
-  margin-top: 5px;
-}
-
-/* otro */
-.icon {
-  position: absolute;
-  left: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.text {
-  display: block;
-  width: 80%;
-  display: table-cell;
-}
-
-.item.tabs {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-.texto {
-  line-height: 1.5em;
-  height: 3em;
-  overflow: hidden;
-}
-
-ul {
-  list-style: none;
-}
-
-ion-icon,
-p {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-a {
-  font-size: 11px;
-}
-
-ion-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-p {
-  margin-left: 10px;
-}
-
-.color-azul {
-  color: #5b6897;
-}
+ 
