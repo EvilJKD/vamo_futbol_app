@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-matches-detail',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchesDetailPage implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
 
+  backButtonClick(){
+    this.location.back();
+  }
   
 
 }
