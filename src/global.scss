@@ -265,10 +265,14 @@ h6{
 }
 
 .card-especial{
+    margin-left: 28px;
+    margin-right: 28px;
+    margin-bottom: 20px;
     border-radius:18px 18px 18px 18px;
 }
 /*Content Padding*/
 .cont-padding{
+    
     padding-left: 28px;
     padding-right: 28px;
 }
@@ -313,3 +317,81 @@ h6{
       rgba(6, 194, 128, 1) 100%
     ) !important;
   }
+
+
+
+.cards{
+    position: relative;
+      margin-right: 10px;
+      display: inline-block;
+      border-color:#848A94;
+    border-width: 1px; /* this allows you to adjust the thickness */
+    border-style: solid;
+    border-radius: 16px;
+    &:hover {
+    background: #04764E;
+    border-color:#04764E;
+    
+
+    .centra span{
+        color:white;
+
+    }
+    }
+    }
+    
+    
+    
+    .card {
+    box-sizing: border-box;
+      position: relative;
+    float: left;
+    width: 64px;
+    height: 115px;
+    // background: #000000;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    
+    
+    
+    .centra{
+          margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    
+    .text {
+      color: #848A94;
+      display: block;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+    }
+    
+    .number {
+      color: #848A94;
+      display: block;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 100%;
+    }
+    
+    }
+    
+    .scroll { 
+      // height: 100vh;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      width: auto;
+    
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .scroll::-webkit-scrollbar{
+      display: none;
+    }
