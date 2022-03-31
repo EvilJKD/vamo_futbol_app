@@ -10,11 +10,11 @@
 
     <div class="centerVH ion-padding-vertical" style="text-align: center;">
       <div class="bgSelectedImg centerVH" style="column-gap: 10px;">
-        <img src="assets/sampleAvatar.jpg" class="currentImg" >
+        <img [src]="currentUser?currentUser.picture_url:'/assets/sampleAvatar.jpg'" class="currentImg" >
         <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
-          <p>Diego Veintimilla</p>
+          <p>{{currentUser?""+currentUser.first_name+" "+currentUser.last_name:'Usuario'}}</p>
           <ion-text style="color: var(--ion-color-darkgreen-tint);">
-            <p>1717171717</p>
+            <p>{{currentUser?currentUser.id:'1717171717'}}</p>
           </ion-text>
         </ion-text>
       </div>
@@ -22,7 +22,7 @@
 
     <ion-item class="ion-no-padding ion-no-border" lines="none"> 
       <ion-label position="stacked" class="ion-padding-bottom ultrathin">Email</ion-label>
-      <ion-input type="text" placeholder="vamo@soccer.com" class="ion-padding-vertical currentInput"></ion-input>
+      <ion-input type="text" placeholder="vamo@soccer.com" class="ion-padding-vertical currentInput" [value]="currentUser?currentUser.email:null"></ion-input>
     </ion-item>
     <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none"> 
       <ion-label position="stacked" class="ion-padding-bottom">Password</ion-label>

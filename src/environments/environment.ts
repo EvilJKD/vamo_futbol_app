@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCuDxoolxtSY5j0_P8pHgJX7DKAercI5Pw",
+    authDomain: "vamo-futbol-app.firebaseapp.com",
+    projectId: "vamo-futbol-app",
+    storageBucket: "vamo-futbol-app.appspot.com",
+    messagingSenderId: "1098687206981",
+    appId: "1:1098687206981:web:18abdf32db2c89b373752c",
+    measurementId: "G-EMRH78WNW8"
+  }
 };
 
 /*

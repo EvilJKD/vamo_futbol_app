@@ -4,7 +4,7 @@
   </ion-toolbar>
 
   <ion-toolbar color="darkgreen" class="toolbar-espacial padding-uno-esp">
-    <h2 class="ion-text-start">Iván</h2>
+    <h2 class="ion-text-start">{{currentUser?currentUser.first_name:"Usuario"}}</h2>
     <ion-buttons slot="end">
       <ion-button fill="clear">
         <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
@@ -99,19 +99,19 @@
     </ion-text>
   </div>
 
-  <ion-card class="card-especial" routerLink="/matches-detail">
+  <ion-card class="card-especial" routerLink="/matches-detail/{{match.id}}" *ngFor="let match of matches|async|matchPopulation">
     <ion-item color="marfil">
       <ion-buttons slot="start" >
         <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
-        <ion-text>4/12</ion-text>
+        <ion-text>{{match.match_date|date:'MM/dd'}}</ion-text>
       </ion-buttons>
-      <ion-card-title color="darkgreen">Chancha 1</ion-card-title>
+      <ion-card-title color="darkgreen">{{match.match_field.field_name}}</ion-card-title>
     </ion-item>
     <ion-footer>
       <ion-row>
         <ion-col>
           <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-            <p class="color-azul">20 Feb<br />7-8pm</p></a>
+            <p class="color-azul">{{match.match_date | date:'medium' }}</p></a>
         </ion-col>
         <ion-col>
           <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
@@ -119,38 +119,12 @@
         </ion-col>
         <ion-col>
           <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
-            <p class="color-azul">Cumbaya</p></a>
+            <p class="color-azul">Lat: {{match.match_field.latitud}}<br>Long: {{match.match_field.longitud}}</p>
+          </a>
         </ion-col>
       </ion-row>
     </ion-footer>
   </ion-card>
-
-  <ion-card class="card-especial" routerLink="/matches-detail">
-    <ion-item color="marfil">
-      <ion-buttons slot="start" >
-        <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
-        <ion-text>4/12</ion-text>
-      </ion-buttons>
-      <ion-card-title color="darkgreen">Chancha 2</ion-card-title>
-    </ion-item>
-    <ion-footer>
-      <ion-row>
-        <ion-col>
-          <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-            <p class="color-azul">20 Feb<br />7-8pm</p></a>
-        </ion-col>
-        <ion-col>
-          <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
-            <p class="color-azul">4km<br />2min</p></a>
-        </ion-col>
-        <ion-col>
-          <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
-            <p class="color-azul">Cumbaya</p></a>
-        </ion-col>
-      </ion-row>
-    </ion-footer>
-  </ion-card>
-
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

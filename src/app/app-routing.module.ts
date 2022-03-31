@@ -39,7 +39,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'matches-detail',
+    path: 'matches-detail/:id',
     loadChildren: () => import('./pages/matches-detail/matches-detail.module').then( m => m.MatchesDetailPageModule)
   }
 ];
