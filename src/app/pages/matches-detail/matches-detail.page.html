@@ -17,13 +17,13 @@
       <ion-col>
         <a>
           <ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-          <p class="color-azul">{{matchInfo.match_date | date:'medium' }}</p>
+          <p class="color-azul">{{matchInfo.match_date | date:'mediumDate' }}<br/>{{matchInfo.match_date | date:'shortTime' }}</p>
         </a>
       </ion-col>
       <ion-col>
         <a class="color-azul">
           <ion-icon name="time-outline" color="azul"></ion-icon>
-          <p class="color-azul">Lat: {{matchInfo.match_field.latitud}}<br>Long: {{matchInfo.match_field.longitud}}</p>
+          <p class="color-azul">({{matchInfo.match_field.latitud}},<br/>{{matchInfo.match_field.longitud}})</p>
         </a>
       </ion-col>
       <ion-col>

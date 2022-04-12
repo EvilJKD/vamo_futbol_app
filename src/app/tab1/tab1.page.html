@@ -99,6 +99,7 @@
     </ion-text>
   </div>
 
+  
   <ion-card class="card-especial" routerLink="/matches-detail/{{match.id}}" *ngFor="let match of matches|async|matchPopulation">
     <ion-item color="marfil">
       <ion-buttons slot="start" >
@@ -111,15 +112,19 @@
       <ion-row>
         <ion-col>
           <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-            <p class="color-azul">{{match.match_date | date:'medium' }}</p></a>
+            <p class="color-azul">{{match.match_date | date:'mediumDate' }}<br/>{{match.match_date | date:'shortTime' }}</p></a>
         </ion-col>
         <ion-col>
           <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
             <p class="color-azul">4km<br />2min</p></a>
         </ion-col>
+        <!-- <ion-col>
+          <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
+            <p class="color-azul">Lat:{{match.match_field.latitud}}<br />Long:{{match.match_field.longitud}}</p></a>
+        </ion-col> -->
         <ion-col>
           <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
-            <p class="color-azul">Lat: {{match.match_field.latitud}}<br>Long: {{match.match_field.longitud}}</p>
+            <p class="color-azul">({{match.match_field.latitud}},<br/>{{match.match_field.longitud}})</p>
           </a>
         </ion-col>
       </ion-row>

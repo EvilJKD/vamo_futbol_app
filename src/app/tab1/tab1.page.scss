@@ -65,4 +65,46 @@ ion-text {
   margin-left: 10px;
 }
 
+
+  
+ion-icon,
+p {
+  display: inline-block;
+  vertical-align: middle;
+ 
+}
+
+a {
+  font-size: 11px;
+}
+
+ion-col{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+p{
+    margin-left: 10px;
+}
+
+.color-azul{
+  color: #5B6897;
+}
+
+.texto-titulo {
+  text-align: center;
+  
+}
+
+.header-especial{
+  display: flex; align-items: center; justify-content: center; 
+  background-color: #F3F3F3;
+}
+
+//   .elemento{
+//       width: 100%;
+//   }
  
