@@ -38,59 +38,16 @@
 
 
   <ul class="scroll">
-    <div class="cards">
+
+    <div class="cards" *ngFor="let date of rangeOfDates">
       <div class="card">
         <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
+          <span class="number">{{date.day}}</span>
+          <span class="text">{{date.daySt}}</span>
         </div>
       </div>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
   </ul>
 
   <div class="div" style="margin-left: 28px;">
@@ -111,7 +68,7 @@
         <ion-img src="assets/loading.svg"></ion-img>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> 
 
   <ng-container *ngIf="matches?.length > 0 ">
   <ion-card class="card-especial" routerLink="/matches-detail/{{match.id}}" *ngFor="let match of matches">
@@ -168,4 +125,4 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
+</ion-content> 
