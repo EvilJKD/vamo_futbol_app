@@ -12,6 +12,9 @@ import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';;
 
+//----------- PLUGINS -----------
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +22,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';;
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+  Geolocation, ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

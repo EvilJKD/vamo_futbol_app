@@ -3,6 +3,7 @@ import { GeoPoint } from '@angular/fire/firestore';
 import * as dayjs from 'dayjs';
 import { Match } from '../interfaces/interfaces';
 import { DataService } from '../services/data.service';
+import {distanceBetweenTwoPoints} from '../helpers/utils'
 
 
 @Pipe({
@@ -13,6 +14,9 @@ export class MatchPopulationPipe implements PipeTransform {
   constructor(private dataService: DataService){}
 
   transform(matchesArr: [any]): any[] {
+
+    console.log('Received matches', matchesArr);
+
 
     if(!matchesArr){
       return [];
@@ -33,6 +37,7 @@ export class MatchPopulationPipe implements PipeTransform {
         })
       })
     })
+
 
     return matchesArr;
   }
