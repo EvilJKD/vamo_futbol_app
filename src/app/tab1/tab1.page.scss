@@ -108,3 +108,15 @@ p{
 //       width: 100%;
 //   }
  
+
+
+// DATEPICKER
+ion-modal {
+  --width: 290px;
+  --height: 60%;
+  --border-radius: 8px;
+}
+
+ion-modal ion-datetime {
+  height: 382px;
+}
