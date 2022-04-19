@@ -6,27 +6,14 @@
   <ion-toolbar color="darkgreen" class="toolbar-espacial padding-uno-esp">
     <h2 class="ion-text-start">{{currentUser?currentUser.first_name:"Usuario"}}</h2>
     <ion-buttons slot="end">
-      <ion-button fill="clear">
+      <ion-button fill="clear" id="open-calendar">
         <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-
-  <!-- <ion-toolbar color="darkgreen" class="toolbar-espacial padding-uno">
-    <h6>Eligue la fecha en la que quieres jugar
-      <br>
-      <h2>Iván</h2>
-    </h6>
-    <ion-buttons slot="end">
-
-        <ion-button fill="clear">
-          <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    
-    
-  </ion-toolbar> -->
 </ion-header>
+
+
 
 <ion-content [fullscreen]="true" style="padding-left: 28px;">
 
@@ -126,3 +113,24 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content> 
+
+<ion-modal trigger="open-calendar" >
+  <ng-template>
+  <ion-content force-overscroll="false" class="ion-padding">
+    <ion-label>Selecciona una fecha: </ion-label>
+    <ion-datetime min="{{today}}" presentation="date" color="darkgreen"></ion-datetime>
+    <ion-grid fixed class="ion-padding">
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="round" fill="outline" color="darkgreen">
+            Cancelar
+          </ion-button>
+          <ion-button shape="round" color="darkgreen">
+            Ok
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ng-template>
+</ion-modal>

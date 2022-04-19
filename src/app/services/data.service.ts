@@ -30,8 +30,8 @@ import geohash from "ngeohash";
 })
 export class DataService {
 
-	private lat = 0.0144927536231884; // degrees latitude per mile
-	private lon = 0.0181818181818182; // degrees longitude per mile
+	private lat = 0.00900901; // degrees latitude per km
+	private lon = 0.00898303; // degrees longitude per km in the eq
 
 	constructor(private firestore: Firestore) { }
 
@@ -98,7 +98,7 @@ export class DataService {
 		const lower = geohash.encode(lowerLat, lowerLong);
 		const upper = geohash.encode(upperLat, upperLong);
 
-		console.log('LIMITS ARE', lower, upper)
+
 
 		const q = query(fieldsRef, where('geohash', '>=', lower), where('geohash', '<=', upper));
 

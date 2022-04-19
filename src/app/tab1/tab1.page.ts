@@ -7,6 +7,9 @@ import { DataService } from '../services/data.service';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { distanceBetweenTwoPoints } from '../helpers/utils'
 
+import 'dayjs'
+import * as dayjs from 'dayjs';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -17,11 +20,14 @@ export class Tab1Page {
   currentUser: any;
   rangeOfDates: any[];
   matches;
-
+  today;
   constructor(private dataService: DataService,
     private geolocation: Geolocation) { }
 
   async ngOnInit() {
+    //Fecha Minima para el picker
+    this.today = dayjs().format('YYYY-MM-DD');
+
 	//Rango de fechas para seleccionar
 	const today = new Date();
 	const afterOneWeek = new Date();
@@ -31,7 +37,7 @@ export class Tab1Page {
 
     const { coords: { latitude, longitude } } = await this.geolocation.getCurrentPosition();
 
-    this.dataService.getNearbyFields(latitude, longitude, 50).subscribe(res => {
+    this.dataService.getNearbyFields(latitude, longitude, 5).subscribe(res => {
       const fieldsIds = res.map(field => {
         const id = field.id
         return id;
@@ -51,6 +57,8 @@ export class Tab1Page {
     this.dataService.getUserById("LxoTotn3TStaEXDZja2u").subscribe((user) => {
       this.currentUser = user;
     });
+
+    
 
   }
 
@@ -105,7 +113,6 @@ export class Tab1Page {
       theDate.setDate(theDate.getDate() + 1)
     }
 
-	console.log('Fechas', dates)
     return dates
 
   }
