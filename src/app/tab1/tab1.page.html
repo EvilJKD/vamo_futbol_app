@@ -28,113 +28,116 @@
   </ion-toolbar> -->
 </ion-header>
 
-<ion-content [fullscreen]="true" style="padding-left: 28px;">
-
-  <div class="div" style="margin-left: 28px;">
-    <ion-text color="dark" >
-      <h4 class="poppins">Fecha</h4>
-    </ion-text>
-  </div>
+<ion-content [fullscreen]="true">
+  <div class="ipadding">
+   
+      <ion-text color="dark" >
+        <h4 class="poppins">Fecha</h4>
+      </ion-text>
+   
+  
+    <ul class="scroll">
+      <div class="cards">
+        <div class="card">
+          <div class="centra">
+            <span class="number">15</span>
+            <span class="text">Friday</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cards">
+        <div class="card">
+          <div class="centra">
+            <span class="number">15</span>
+            <span class="text">Friday</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cards">
+        <div class="card">
+          <div class="centra">
+            <span class="number">15</span>
+            <span class="text">Friday</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cards">
+        <div class="card">
+          <div class="centra">
+            <span class="number">15</span>
+            <span class="text">Friday</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cards">
+        <div class="card">
+          <div class="centra">
+            <span class="number">15</span>
+            <span class="text">Friday</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cards">
+        <div class="card">
+          <div class="centra">
+            <span class="number">15</span>
+            <span class="text">Friday</span>
+          </div>
+        </div>
+      </div>
+    </ul>
+  
+    
+      <ion-text color="dark" >
+        <h4 class="poppins">Partidos</h4>
+      </ion-text>
+  
+    
+    <ion-card class="card-especial ion-no-margin" routerLink="/matches-detail/{{match.id}}" *ngFor="let match of matches|async|matchPopulation">
+      <ion-item color="marfil">
+        <ion-buttons slot="start" >
+          <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
+          <ion-text>{{match.match_date|date:'MM/dd'}}</ion-text>
+        </ion-buttons>
+        <ion-card-title color="darkgreen">{{match.match_field.field_name}}</ion-card-title>
+      </ion-item>
+      <ion-footer>
+        <ion-row>
+          <ion-col>
+            <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
+              <p class="color-azul">{{match.match_date | date:'mediumDate' }}<br/>{{match.match_date | date:'shortTime' }}</p></a>
+          </ion-col>
+          <ion-col>
+            <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
+              <p class="color-azul">4km<br />2min</p></a>
+          </ion-col>
+          <!-- <ion-col>
+            <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
+              <p class="color-azul">Lat:{{match.match_field.latitud}}<br />Long:{{match.match_field.longitud}}</p></a>
+          </ion-col> -->
+          <ion-col>
+            <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
+              <p class="color-azul">({{match.match_field.latitud}},<br/>{{match.match_field.longitud}})</p>
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-footer>
+    </ion-card>
+  
+  
  
 
-  <ul class="scroll" >
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="centra">
-          <span class="number">15</span>
-          <span class="text">Friday</span>
-        </div>
-      </div>
-    </div>
-  </ul>
-
-  <div class="div" style="margin-left: 28px;">
-    <ion-text color="dark" >
-      <h4 class="poppins">Partidos</h4>
-    </ion-text>
   </div>
-
-  
-  <ion-card class="card-especial" routerLink="/matches-detail/{{match.id}}" *ngFor="let match of matches|async|matchPopulation">
-    <ion-item color="marfil">
-      <ion-buttons slot="start" >
-        <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
-        <ion-text>{{match.match_date|date:'MM/dd'}}</ion-text>
-      </ion-buttons>
-      <ion-card-title color="darkgreen">{{match.match_field.field_name}}</ion-card-title>
-    </ion-item>
-    <ion-footer>
-      <ion-row>
-        <ion-col>
-          <a><ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-            <p class="color-azul">{{match.match_date | date:'mediumDate' }}<br/>{{match.match_date | date:'shortTime' }}</p></a>
-        </ion-col>
-        <ion-col>
-          <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
-            <p class="color-azul">4km<br />2min</p></a>
-        </ion-col>
-        <!-- <ion-col>
-          <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
-            <p class="color-azul">Lat:{{match.match_field.latitud}}<br />Long:{{match.match_field.longitud}}</p></a>
-        </ion-col> -->
-        <ion-col>
-          <a class="color-azul"><ion-icon name="location-outline" color="azul"></ion-icon>
-            <p class="color-azul">({{match.match_field.latitud}},<br/>{{match.match_field.longitud}})</p>
-          </a>
-        </ion-col>
-      </ion-row>
-    </ion-footer>
-  </ion-card>
-
-
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button  color="darkgreen" routerLink="/addfield">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+ 
 </ion-content>

@@ -79,6 +79,13 @@ html, body{
 	--ion-color-azul-shade: #14255e;
 	--ion-color-azul-tint: #2e3f7a;
     --ion-font-family: 'Poppins', sans-serif;
+
+    --ion-color-gris: #8A8A8A;
+	--ion-color-gris-rgb: 138,138,138;
+	--ion-color-gris-contrast: #000000;
+	--ion-color-gris-contrast-rgb: 0,0,0;
+	--ion-color-gris-shade: #797979;
+	--ion-color-gris-tint: #969696;
 }
 
 
@@ -129,6 +136,15 @@ html, body{
 	--ion-color-contrast-rgb: var(--ion-color-azul-contrast-rgb);
 	--ion-color-shade: var(--ion-color-azul-shade);
 	--ion-color-tint: var(--ion-color-azul-tint);
+}
+
+.ion-color-gris {
+	--ion-color-base: var(--ion-color-gris);
+	--ion-color-base-rgb: var(--ion-color-gris-rgb);
+	--ion-color-contrast: var(--ion-color-gris-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-gris-contrast-rgb);
+	--ion-color-shade: var(--ion-color-gris-shade);
+	--ion-color-tint: var(--ion-color-gris-tint);
 }
 
 /*Texts Weights & Sizes*/
@@ -211,15 +227,15 @@ html, body{
 .bgSelectedImg{
     background-color: #373737;
     width: 45%;
-    height: 120%;
-    border-radius: 15%;
+    height: 100%;
+    border-radius: 18px;
 }
 
 .currentImg{
     max-width: 85%;
-    border-radius: 15%;
+    border-radius: 18px;
     position: relative;
-    top: -15%;
+    top: -15px;
 }
 
 .img-slide{
@@ -265,8 +281,6 @@ h6{
 }
 
 .card-especial{
-    margin-left: 28px;
-    margin-right: 28px;
     margin-bottom: 20px;
     border-radius:18px 18px 18px 18px;
 }
@@ -395,3 +409,15 @@ h6{
     .scroll::-webkit-scrollbar{
       display: none;
     }
+
+    .ipadding,
+  *[padding] {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .bg-transparent {
+    background: transparent;
+  }

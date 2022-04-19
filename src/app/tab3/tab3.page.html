@@ -4,9 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true">
 
-  <div class="height-100 centerV">
+  <div class="ipadding centerV">
 
     <div class="centerVH ion-padding-vertical" style="text-align: center;">
       <div class="bgSelectedImg centerVH" style="column-gap: 10px;">
@@ -21,11 +21,11 @@
     </div>
 
     <ion-item class="ion-no-padding ion-no-border" lines="none"> 
-      <ion-label position="stacked" class="ion-padding-bottom ultrathin">Email</ion-label>
+      <ion-label position="stacked" class="ion-padding-bottom" color="gris">Email</ion-label>
       <ion-input type="text" placeholder="vamo@soccer.com" class="ion-padding-vertical currentInput" [value]="currentUser?currentUser.email:null"></ion-input>
     </ion-item>
     <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none"> 
-      <ion-label position="stacked" class="ion-padding-bottom">Password</ion-label>
+      <ion-label position="stacked" class="ion-padding-bottom" color="gris">Password</ion-label>
       <ion-input type="password" class="ion-padding-vertical currentInput"></ion-input>
     </ion-item>
 
