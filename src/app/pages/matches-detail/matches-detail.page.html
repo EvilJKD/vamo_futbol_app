@@ -4,65 +4,67 @@
       class="ion-padding-horizontal"></ion-icon>
   </ion-toolbar>
 </ion-header>
-<ion-card class="card-especial" *ngIf="matchInfo">
-  <ion-item color="marfil">
-    <ion-buttons slot="start">
-      <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
-      <ion-text>{{matchInfo.match_date | date:'MM/dd'}}</ion-text>
-    </ion-buttons>
-    <ion-card-title style="margin-left: 13px;" color="darkgreen">{{matchInfo.match_field.field_name}}</ion-card-title>
-  </ion-item>
-  <ion-footer style="padding: 10px;">
-    <ion-row>
-      <ion-col>
-        <a>
-          <ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-          <p class="color-azul">{{matchInfo.match_date | date:'mediumDate' }}<br/>{{matchInfo.match_date | date:'shortTime' }}</p>
-        </a>
-      </ion-col>
-      <ion-col>
-        <a class="color-azul">
-          <ion-icon name="time-outline" color="azul"></ion-icon>
-          <p class="color-azul">({{matchInfo.match_field.latitud}},<br/>{{matchInfo.match_field.longitud}})</p>
-        </a>
-      </ion-col>
-      <ion-col>
-        <a class="color-azul">
-          <ion-icon name="location-outline" color="azul"></ion-icon>
-          <p class="color-azul">Cumbaya</p>
-        </a>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
-  <ion-footer color="light" style="background-color: #f3f3f3; padding-top: 20px;">
-    <ion-text class="ion-text-center" color="azul">
-      <h4>Inicio calentamiento</h4>
-      <h2>7:45</h2>
-    </ion-text>
 
-    <div class="cuerpo">
-      <div class="container gradient-green-bg">
-        <div class="space" style="padding: 10px">
-          <h1 id="headline">Match Countdown</h1>
-          <div id="countdown">
-            <ul>
-              <li><span id="days"></span>2 days</li>
-              <li><span id="hours"></span> 3 Hrs</li>
-              <li><span id="minutes"></span> 4 Mins</li>
-              <!-- <li><span id="seconds"></span> 1 Secs</li> -->
-            </ul>
-          </div>
-          <div id="content" class="emoji">
-            <span>⚽️</span>
+
+<ion-content class="ion-padding" *ngIf="matchInfo">
+  <ion-card class="card-especial" *ngIf="matchInfo" style="margin: 20px 0px;">
+    <ion-item color="marfil">
+      <ion-buttons slot="start">
+        <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
+        <ion-text>{{matchInfo.match_date | date:'MM/dd'}}</ion-text>
+      </ion-buttons>
+      <ion-card-title style="margin-left: 13px;" color="darkgreen">{{matchInfo.match_field.field_name}}</ion-card-title>
+    </ion-item>
+    <ion-footer style="padding: 10px;">
+      <ion-row>
+        <ion-col>
+          <a>
+            <ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
+            <p class="color-azul">{{matchInfo.match_date | date:'mediumDate' }}<br/>{{matchInfo.match_date | date:'shortTime' }}</p>
+          </a>
+        </ion-col>
+        <ion-col>
+          <a class="color-azul">
+            <ion-icon name="time-outline" color="azul"></ion-icon>
+            <p class="color-azul">({{matchInfo.match_field.latitud}},<br/>{{matchInfo.match_field.longitud}})</p>
+          </a>
+        </ion-col>
+        <ion-col>
+          <a class="color-azul">
+            <ion-icon name="location-outline" color="azul"></ion-icon>
+            <p class="color-azul">Cumbaya</p>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+    <ion-footer color="light" style="background-color: #f3f3f3; padding-top: 20px;">
+      <ion-text class="ion-text-center" color="azul">
+        <h4>Inicio calentamiento</h4>
+        <h2>7:45</h2>
+      </ion-text>
+  
+      <div class="cuerpo">
+        <div class="container gradient-green-bg">
+          <div class="space" style="padding: 10px">
+            <h1 id="headline">Match Countdown</h1>
+            <div id="countdown">
+              <ul>
+                <li><span id="days"></span>2 days</li>
+                <li><span id="hours"></span> 3 Hrs</li>
+                <li><span id="minutes"></span> 4 Mins</li>
+                <!-- <li><span id="seconds"></span> 1 Secs</li> -->
+              </ul>
+            </div>
+            <div id="content" class="emoji">
+              <span>⚽️</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </ion-footer>
-</ion-card>
-
-<ion-content class="ion-padding" *ngIf="matchInfo">
-  <ion-card mode="md">
+    </ion-footer>
+  </ion-card>
+  
+  <ion-card mode="md" style="margin: 20px 0px;">
     <ion-label color="azul" class="ion-padding">Jugadores 14/14</ion-label>
     <br />
 
@@ -74,11 +76,11 @@
     </div>
   </ion-card>
 
-  <div  id="mapaCancha" style="margin:20px auto; height: 80%; width: 75%;">
+  <div  id="mapaCancha" style="margin: 10px auto; height: 50%; width: 100%; position: relative;">
     
   </div>
 
-  <div class="card-end">
+  <div class="card-end" style="margin: 20px 0px;">
     <!-- <ion-label>Detalles de la reserva</ion-label> -->
     <ion-text color="black" style="text-align: center;">
       <h2><b>Detalles de la reserva</b></h2>
