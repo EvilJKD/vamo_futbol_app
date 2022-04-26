@@ -41,4 +41,5 @@ export interface User{
     picture_url: string;
     profile_type: string;
     status: string;
+    ssnumber: string;
 }
