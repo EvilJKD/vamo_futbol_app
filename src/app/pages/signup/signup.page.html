@@ -19,7 +19,7 @@
       </ion-item> -->
       <ion-item class="ion-no-padding ion-no-border">
         <ion-label position="floating" color="gris">Nombre y Apellido</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
+        <ion-input type="text" formControlName="name" #name></ion-input>
       </ion-item>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.name">
@@ -31,7 +31,7 @@
 
       <ion-item class="ion-no-padding ion-no-border">
         <ion-label position="floating" color="gris">Email</ion-label>
-        <ion-input type="text" formControlName="email"></ion-input>
+        <ion-input type="text" formControlName="email" #email></ion-input>
       </ion-item>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.email">
@@ -43,13 +43,13 @@
 
       <ion-item class="ion-no-padding ion-no-border">
         <ion-label position="floating" color="gris">ID</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input type="number" #id></ion-input>
       </ion-item>
 
       <div formGroupName="matching_passwords">
         <ion-item class="ion-no-padding ion-no-border">
           <ion-label position="floating" color="gris">Contraseña</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
+          <ion-input type="password" formControlName="password" #password></ion-input>
         </ion-item>
         <div class="validation-errors">
           <ng-container *ngFor="let validation of validation_messages.password">
@@ -80,7 +80,7 @@
         </ng-container>
       </div>
   
-      <ion-button expand="block" shape="round" color="dark" style="margin-top: 10%;" class="ion-padding-vertical vh-btn" routerLink="/profilesetup">
+      <ion-button expand="block" shape="round" color="dark" style="margin-top: 10%;" class="ion-padding-vertical vh-btn" (click)="signUp(name, id, email, password)">
         Registrarse
       </ion-button>
       <div class="centerVH ion-no-padding" style="text-align: center;">
