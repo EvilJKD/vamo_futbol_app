@@ -5,6 +5,7 @@ import { UsernameValidator } from '../validators/username.validator';
 import { PhoneValidator } from '../validators/phone.validator';
 import { PasswordValidator } from '../validators/password.validator';
 import { CountryPhone } from './country-phone.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,12 +23,10 @@ export class SignupPage implements OnInit {
   genders: Array<string>;
 
   constructor(private location: Location,
-    public formBuilder: FormBuilder,
-    private router: Router) { }
+    private authService: AuthService,
+    public formBuilder: FormBuilder, 
+    private router:Router) { }
 
-  backButtonClick(){
-    this.location.back();
-  }
 
   ngOnInit() {
     //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
@@ -127,5 +126,20 @@ export class SignupPage implements OnInit {
     console.log(values);
     this.router.navigate(["/user"]);
   }
+  
+  //Metodo para registrarse
+  signUp(name, id, email, password){  
+    this.authService.RegisterUser(name.value, id.value, email.value, password.value)
+    .then(res => {
 
+      this.authService.SendVerificationMail();
+      this.router.navigate(['verify-email'])
+    }).catch(err => {
+      window.alert(err.message);
+    })
+  }
+
+  backButtonClick(){
+    this.location.back();
+  }
 }

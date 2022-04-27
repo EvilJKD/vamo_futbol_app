@@ -31,11 +31,27 @@
       </ion-text>
     </div>
 
-    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let card of [0,1,2,3,4,5,6]" style="width: 100px; height: auto; justify-content: center; align-items: center;">
-        <ion-img src="assets/sampleAvatar.jpg" style="border-radius: 15%; overflow: hidden; margin: 10% 15%;"></ion-img>
+    
+      
+      <ion-slide *ngFor="let card of [0,1,2,3,4,5,6]" >
+        
       </ion-slide>
-    </ion-slides>
+    
+      <ul class="scroll">
+        <div class="cards" *ngFor="let date of [0,1,2,3]" style="width: 100px; height: 100px; justify-content: center; align-items: center; border: none;">
+              <ion-img src="assets/sampleAvatar.jpg" style="border-radius: 15%; overflow: hidden; margin: 5% 5%;"></ion-img>
+        </div>
+        <div class="cards" style="width: 100px; height: 100px; justify-content: center; align-items: center; border: none;">
+          <div style="border-radius: 15%; overflow: hidden; margin: 5% 5%; height: 90px; width: 90px;">
+            <label for="image-upload" class="upload-block" style="vertical-align: middle; height: 90px; width: 90px">
+              <div style="display: flex; justify-content: center; align-content: center; height: 100%; width: 100%;">
+                <ion-icon name="add" style="font-size: 65px; margin: auto;" color="darkgreen"></ion-icon>
+              </div>
+              </label>
+              <input id="image-upload" type="file" style="display: none;" >
+          </div>
+        </div>
+      </ul>
 
     <div style="display: inline-flex; flex-wrap: wrap; justify-content: space-evenly;">
       <ion-button shape="round" color="medium" fill="outline" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn" routerLink="/home">

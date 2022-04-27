@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthService } from './services/auth.service';
+
 
 const routes: Routes = [
   {
@@ -41,7 +43,16 @@ const routes: Routes = [
   {
     path: 'matches-detail/:id',
     loadChildren: () => import('./pages/matches-detail/matches-detail.module').then( m => m.MatchesDetailPageModule)
+  },
+  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+  },
+  {
+    path: 'password-reset',
+    loadChildren: () => import('./pages/password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
   }
+
 ];
 @NgModule({
   imports: [
