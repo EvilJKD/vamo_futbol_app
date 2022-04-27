@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-password-reset',
@@ -9,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PasswordResetPage implements OnInit {
 
-  constructor(public authService: AuthService,
+  constructor(private location: Location, public authService: AuthService,
     private router: Router) { }
 
   ngOnInit() {
@@ -30,6 +31,9 @@ export class PasswordResetPage implements OnInit {
     });
 
 
+  }
+  backButtonClick(){
+    this.location.back();
   }
 
 }
