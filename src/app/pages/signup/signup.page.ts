@@ -8,6 +8,9 @@ import { CountryPhone } from './country-phone.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
+//Toast
+import { ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -25,7 +28,8 @@ export class SignupPage implements OnInit {
   constructor(private location: Location,
     private authService: AuthService,
     public formBuilder: FormBuilder, 
-    private router:Router) { }
+    private router:Router,
+    public toastController: ToastController) { }
 
 
   ngOnInit() {
@@ -135,11 +139,23 @@ export class SignupPage implements OnInit {
       this.authService.SendVerificationMail();
       this.router.navigate(['verify-email'])
     }).catch(err => {
-      window.alert(err.message);
+      this.presentToast('ERROR', err.message, "close-circle-outline");
     })
   }
 
   backButtonClick(){
     this.location.back();
+  }
+
+  //Mostrat Toast
+  async presentToast(ttl, msg, icon) {
+    const toast = await this.toastController.create({
+      header: ttl, 
+      message: msg,
+      icon: icon,
+      color: 'danger',
+      duration: 2000
+    });
+    toast.present();
   }
 }

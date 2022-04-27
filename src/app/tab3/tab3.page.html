@@ -14,7 +14,7 @@
         <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
           <p>{{currentUser?""+currentUser.first_name+" "+currentUser.last_name:'Usuario'}}</p>
           <ion-text style="color: var(--ion-color-darkgreen-tint);">
-            <p>{{currentUser?currentUser.id:'1717171717'}}</p>
+            <p>{{currentUser?currentUser.ssnumber: "Ingrese su S.S. Number"}}</p>
           </ion-text>
         </ion-text>
       </div>
@@ -38,6 +38,16 @@
       </ion-button>
     </div>
   </div>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button shape="round" expand="block" color="danger" fill="outline" class="ion-padding-vertical vh-btn" (click)="logOut()">
+          SIGN OUT
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
 </ion-content>

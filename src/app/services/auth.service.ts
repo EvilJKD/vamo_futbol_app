@@ -10,6 +10,8 @@ import {
 import { Firestore, collection, doc, addDoc } from '@angular/fire/firestore';
 import { async } from '@firebase/util';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -70,15 +72,7 @@ export class AuthService {
   // Recover password
   PasswordRecover(passwordResetEmail) {
     return this.ngFireAuth
-      .sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert(
-          'Password reset email has been sent, please check your inbox.'
-        );
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
+      .sendPasswordResetEmail(passwordResetEmail);
   }
   // Returns true when user is looged in
   get isLoggedIn(): boolean {

@@ -31,7 +31,7 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     AngularFireStorageModule, 
     AngularFireDatabaseModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-  Geolocation, ],
+  Geolocation],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
