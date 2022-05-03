@@ -232,7 +232,11 @@ html, body{
 }
 
 .currentImg{
-    max-width: 85%;
+    object-fit: cover;
+    height: 135px !important;
+    width: 135px !important;
+    max-width: 135px;
+    max-height: 135px;
     border-radius: 18px;
     position: relative;
     top: -15px;

@@ -65,7 +65,7 @@ export class AuthService {
   SendVerificationMail() {
     return this.ngFireAuth.currentUser.then((user) => {
       return user.sendEmailVerification().then(() => {
-        this.router.navigate(['login']);
+        this.router.navigate(['profilesetup']);
       });
     });
   }
@@ -83,10 +83,6 @@ export class AuthService {
   get isEmailVerified(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return user.emailVerified !== false ? true : false;
-  }
-  // Sign in with Gmail
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
   }
   // Auth providers
   AuthLogin(provider) {

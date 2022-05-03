@@ -17,7 +17,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 //----------- PLUGINS -----------
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { File } from '@awesome-cordova-plugins/file/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,7 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     AngularFireStorageModule, 
     AngularFireDatabaseModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-  Geolocation],
+  Geolocation, Camera, File],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

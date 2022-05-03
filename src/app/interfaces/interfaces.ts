@@ -43,3 +43,9 @@ export interface User{
     status: string;
     ssnumber: string;
 }
+
+export interface File {
+    name: string;
+    filepath: string;
+    size: number;
+  }

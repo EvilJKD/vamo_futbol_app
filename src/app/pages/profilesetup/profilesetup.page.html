@@ -15,11 +15,11 @@
 
     <div class="centerVH ion-padding-vertical" style="text-align: center;">
       <div class="bgSelectedImg centerVH" style="column-gap: 10px;">
-        <img src="assets/sampleAvatar.jpg" class="currentImg" >
+        <img [src]="imgNativePath?imgNativePath:'assets/sampleAvatar.jpg'" class="currentImg" >
         <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
-          <p>Diego Veintimilla</p>
+          <p>{{currentUser.first_name}} {{currentUser.last_name}}</p>
           <ion-text style="color: var(--ion-color-darkgreen-tint);">
-            <p>1717171717</p>
+            <p>{{currentUser.ssnumber}}</p>
           </ion-text>
         </ion-text>
       </div>
@@ -41,14 +41,13 @@
         <div class="cards" *ngFor="let date of [0,1,2,3]" style="width: 100px; height: 100px; justify-content: center; align-items: center; border: none;">
               <ion-img src="assets/sampleAvatar.jpg" style="border-radius: 15%; overflow: hidden; margin: 5% 5%;"></ion-img>
         </div>
-        <div class="cards" style="width: 100px; height: 100px; justify-content: center; align-items: center; border: none;">
+        <div class="cards" style="width: 100px; height: 100px; justify-content: center; align-items: center; border: none;" (click)="presentActionSheet()">
           <div style="border-radius: 15%; overflow: hidden; margin: 5% 5%; height: 90px; width: 90px;">
-            <label for="image-upload" class="upload-block" style="vertical-align: middle; height: 90px; width: 90px">
-              <div style="display: flex; justify-content: center; align-content: center; height: 100%; width: 100%;">
+            <label class="upload-block" style="vertical-align: middle; height: 90px; width: 90px">
+              <div style="display: flex; justify-content: center; align-content: center; height: 100%; width: 100%; background-color: #fff;">
                 <ion-icon name="add" style="font-size: 65px; margin: auto;" color="darkgreen"></ion-icon>
               </div>
               </label>
-              <input id="image-upload" type="file" style="display: none;" >
           </div>
         </div>
       </ul>
@@ -57,7 +56,7 @@
       <ion-button shape="round" color="medium" fill="outline" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn" routerLink="/home">
         SKIP
       </ion-button>
-      <ion-button shape="round" color="darkgreen" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn" routerLink="/home">
+      <ion-button shape="round" color="darkgreen" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn" (click)="confirmAndUpload()">
         CONFIRM
       </ion-button>
     </div>
