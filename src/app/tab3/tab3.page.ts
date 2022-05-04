@@ -29,6 +29,13 @@ export class Tab3Page {
         this.currentUser = user;
       });
     })
+
+
+    this.auth.currentUser.then(user => {
+      this.dataService.getUserById(user.uid).subscribe((user) => {
+        this.currentUser = user;
+      });
+    })
   }
 
 
@@ -56,4 +63,12 @@ export class Tab3Page {
     });
     toast.present();
   }
+
+  public Show: boolean = false;
+  public Edit: boolean = true;
+
+  toggleEdit() {
+      this.Show = !this.Show;
+      this.Edit = !this.Edit;
+}
 }

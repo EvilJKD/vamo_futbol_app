@@ -48,6 +48,30 @@
       </ion-item>
     </div>
 
+    <ion-list>
+      <ion-item no-lines (click)="toggleEdit()" class="content">
+        <ion-icon name="create" item-left class="sai"></ion-icon>     
+         Language 
+         <!-- <div class="english">
+           <span *ngIf="Edit">English</span> 
+           <ion-icon name="add" item-right *ngIf="Show" >
+             <h1>Hola</h1>
+           </ion-icon>
+           <ion-icon name="remove" item-right *ngIf="Edit">
+             <h1>Adios</h1>
+           </ion-icon>
+       </div> -->
+       
+     </ion-item>
+   </ion-list>
+  
+   <ion-button (click)="toggleEdit()" expand="block" fill="clear" shape="round">
+     Edit
+   </ion-button>
+
+   <div class=""  *ngIf="Show"><h1>Hola</h1></div>
+       <div class=""  *ngIf="Edit"><h1>Adios</h1></div>
+
   </div>
 
   <ion-grid fixed>
