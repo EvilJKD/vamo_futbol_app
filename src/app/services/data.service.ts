@@ -16,7 +16,8 @@ import {
 	collectionChanges,
 	docSnapshots,
 	GeoPoint,
-	FieldPath
+	FieldPath,
+	updateDoc
 } from '@angular/fire/firestore';
 import { addDoc, setDoc } from '@firebase/firestore';
 import { identity, Observable } from 'rxjs';
@@ -67,6 +68,12 @@ export class DataService {
 		const matchDocRef = await addDoc(matchesRef, match);
 
 		return matchDocRef.id;
+	}
+	//Modify User Properties
+	updateMatchById(id, updateBody){
+		const matchDocRef = doc(this.firestore, `matches/${id}`);
+		
+		return updateDoc(matchDocRef, updateBody)
 	}
 
 
@@ -120,6 +127,12 @@ export class DataService {
 
 
 		return userDocRef.id;
+	}
+	//Modify User Properties
+	updateUserById(id, updateBody){
+		const userDocRef = doc(this.firestore, `users/${id}`);
+		
+		return updateDoc(userDocRef, updateBody)
 	}
 
 

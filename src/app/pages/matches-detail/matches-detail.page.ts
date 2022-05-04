@@ -5,6 +5,8 @@ import { DataService } from 'src/app/services/data.service';
 import { Match } from 'src/app/interfaces/interfaces';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import {Map, tileLayer, marker, polyline } from 'leaflet';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-matches-detail',
@@ -16,17 +18,35 @@ export class MatchesDetailPage implements OnInit {
   matchID: string = '';
   matchInfo: any;
 
+
+  currentUser: any;
+  isRegistered: boolean;
+
   //MAPA
   map: Map;
   marker: any;
   currentPosition: any;
 
-  constructor(private location: Location, private route: ActivatedRoute, private dataService: DataService, private geolocation: Geolocation) { }
+  constructor(
+    private location: Location, 
+    private route: ActivatedRoute, 
+    public alertController: AlertController,
+    private dataService: DataService, 
+    private geolocation: Geolocation,
+    private auth: AngularFireAuth) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    //User
+    const user = await this.auth.currentUser;
+    this.dataService.getUserById(user.uid).subscribe((user) => {
+      this.currentUser = user;
+    });
+
+
+    
+
     //Control de inicializacion de mapas
     if (this.map) {
-      console.log('Removing')
       this.map.off();
       this.map.remove();
     }
@@ -34,6 +54,11 @@ export class MatchesDetailPage implements OnInit {
 
     this.matchID = this.route.snapshot.paramMap.get('id');
     
+    await this.getMatchInfo();
+
+  }
+
+   async getMatchInfo(){
     this.dataService.getMatchById(this.matchID).subscribe((match) => {
       
       let matchLat, matchLong;
@@ -47,14 +72,24 @@ export class MatchesDetailPage implements OnInit {
         match.match_field= {field_name, latitud, longitud, max_players, status};
       })
 
-      match.match_players.forEach((player, idx) => {
-        this.dataService.getUserById(player).subscribe((playerInfo) => {
-          const {first_name, last_name, phone_number, picture_url} = playerInfo;
-          match.match_players[idx] = {first_name, last_name, phone_number, picture_url};
+      match.match_players.forEach(async (player, idx) => {
+        await this.dataService.getUserById(player).subscribe((playerInfo) => {
+          const {first_name, last_name, phone_number, picture_url, id} = playerInfo;
+          match.match_players[idx] = {first_name, last_name, phone_number, picture_url, id};
         })
       })
 
       this.matchInfo = match;
+
+      console.log(this.matchInfo);
+      if (this.matchInfo.match_players.find(player => {
+        return player == this.currentUser.id
+      })){
+        this.isRegistered = true;
+      } else {
+        this.isRegistered = false;
+      }
+      
 
       //Inicializacion del mapa
       this.geolocation.getCurrentPosition().then(resp => {
@@ -64,8 +99,8 @@ export class MatchesDetailPage implements OnInit {
       });
 
     });
-
   }
+
 
   backButtonClick(){
     this.location.back();
@@ -80,6 +115,107 @@ export class MatchesDetailPage implements OnInit {
   placeMarker(fieldPosition, currentPosition){
     this.marker = marker(fieldPosition).addTo(this.map);
     polyline([fieldPosition, currentPosition]).addTo(this.map);
+  }
+
+  //IONIC COMPONENTS
+
+  async presentConfirmationReservation() {
+    const alert = await this.alertController.create({
+      header: 'REGISTRATION',
+      message: 'Presiona el boton para confirmar tu ingreso a este partido',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button'
+        }, {
+          text: 'Confirmar',
+          id: 'confirm-button',
+          handler: () => {
+            this.registrarse();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async presentConfirmationCancelation() {
+    const alert = await this.alertController.create({
+      header: 'REGISTRATION',
+      message: 'Presiona el boton para confirmar tu salida a este partido',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button'
+        }, {
+          text: 'Confirmar',
+          id: 'confirm-button',
+          handler: () => {
+            this.salirPartido();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async presentAlert(msg) {
+    const alert = await this.alertController.create({
+      header: 'Alerta',
+      subHeader: msg,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  //Metodos para los componentes
+
+  registrarse(){
+    const max_players = this.matchInfo.match_field.max_players;
+    let currentPlayers = this.matchInfo.match_players.map(player => {
+      return player.id;
+    });
+    
+    if(currentPlayers.length >= max_players){
+      this.presentAlert('Este partido ya esta lleno. Intenta registrarte en algún otro.')
+      return;
+    }
+
+    currentPlayers.push(this.currentUser.id);
+
+    console.log('Modified current players', currentPlayers);
+    this.dataService.updateMatchById(this.matchID, {
+      match_players: [...currentPlayers]
+    })
+
+  }
+
+  salirPartido(){
+    let currentPlayers = this.matchInfo.match_players.map(player => {
+      return player.id;
+    });
+    
+    if(!currentPlayers.includes(this.currentUser.id)){
+      this.presentAlert('No te encuentras registrado en este partido.')
+      return;
+    }
+
+    currentPlayers = currentPlayers.filter(player => {
+      return player != this.currentUser.id;
+    })
+
+    console.log('Modified current players', currentPlayers);
+    this.dataService.updateMatchById(this.matchID, {
+      match_players: [...currentPlayers]
+    })
+
   }
 
 }
