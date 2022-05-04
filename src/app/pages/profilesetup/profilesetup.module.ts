@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilesetupPageRoutingModule } from './profilesetup-routing.module';
 
 import { ProfilesetupPage } from './profilesetup.page';
+import { FileSizePipe } from 'src/app/pipes/file-size.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,8 @@ import { ProfilesetupPage } from './profilesetup.page';
     IonicModule,
     ProfilesetupPageRoutingModule
   ],
-  declarations: [ProfilesetupPage]
+  declarations: [
+    ProfilesetupPage
+  ]
 })
 export class ProfilesetupPageModule {}

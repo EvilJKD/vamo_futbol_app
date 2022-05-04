@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SigninPage implements OnInit {
 
   constructor(public authService: AuthService, 
-    public router: Router) { }
+    public router: Router,
+    public toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -25,8 +27,20 @@ export class SigninPage implements OnInit {
           return false;
         }
       }).catch(err => {
-        window.alert(err.message);
+        this.presentToast('ERROR', err.message, "close-circle-outline");
       })
+  }
+
+   //Mostrat Toast
+   async presentToast(ttl, msg, icon) {
+    const toast = await this.toastController.create({
+      header: ttl, 
+      message: msg,
+      icon: icon,
+      color: 'danger',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Vamo_FutbolApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -14,30 +14,51 @@
         <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
           <p>{{currentUser?""+currentUser.first_name+" "+currentUser.last_name:'Usuario'}}</p>
           <ion-text style="color: var(--ion-color-darkgreen-tint);">
-            <p>{{currentUser?currentUser.id:'1717171717'}}</p>
+            <p>{{currentUser?currentUser.ssnumber: "Ingrese su S.S. Number"}}</p>
           </ion-text>
         </ion-text>
       </div>
     </div>
 
-    <ion-item class="ion-no-padding ion-no-border" lines="none"> 
-      <ion-label position="stacked" class="ion-padding-bottom" color="gris">Email</ion-label>
-      <ion-input type="text" placeholder="vamo@soccer.com" class="ion-padding-vertical currentInput" [value]="currentUser?currentUser.email:null"></ion-input>
-    </ion-item>
-    <ion-item class="ion-no-padding ion-no-border ion-padding-top" lines="none"> 
-      <ion-label position="stacked" class="ion-padding-bottom" color="gris">Password</ion-label>
-      <ion-input type="password" class="ion-padding-vertical currentInput"></ion-input>
-    </ion-item>
+    <div>
 
-    <div style="display: inline-flex; flex-wrap: wrap; justify-content: space-evenly;">
-      <ion-button shape="round" color="medium" fill="outline" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn">
-        CANCEL
-      </ion-button>
-      <ion-button shape="round" color="darkgreen" style="margin-top: 10%; width: 45%;" class="ion-padding-vertical vh-btn">
-        CONFIRM
-      </ion-button>
+      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Nombre</b></h3>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.first_name: ''}}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Apellido</b></h3>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.last_name: ''}}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Email</b></h3>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.email: ''}}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Phone Number</b></h3>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.phone_number: ''}}</h2>
+        </ion-label>
+      </ion-item>
     </div>
+
   </div>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button shape="round" expand="block" color="danger" fill="outline" class="ion-padding-vertical vh-btn" (click)="logOut()">
+          SIGN OUT
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
 </ion-content>
