@@ -8,6 +8,7 @@ import { PickerController, PickerColumn, PickerColumnOption } from '@ionic/angul
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { DataService } from 'src/app/services/data.service';
 import { FbstorageService } from 'src/app/services/fbstorage.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-addfield',
@@ -15,6 +16,8 @@ import { FbstorageService } from 'src/app/services/fbstorage.service';
   styleUrls: ['./addfield.page.scss'],
 })
 export class AddfieldPage implements OnInit {
+
+  currentUser: any;
 
   currentPosition: any = {
     latitude: null,
@@ -48,16 +51,26 @@ export class AddfieldPage implements OnInit {
     options: this.posiblesHoras
   }
 
+  //SubirArchivo
+  file: any;
+
   constructor(
     private location: Location,
     private pickerController: PickerController,
     private dataService: DataService,
     private storage: FbstorageService,
+    private auth: AngularFireAuth,
     private geolocation: Geolocation) { }
 
   horarios: any[] = [];
 
   ngOnInit() {
+    
+    this.auth.currentUser.then(user => {
+      this.dataService.getUserById(user.uid).subscribe((user) => {
+        this.currentUser = user;
+      });
+    })
   }
 
   //Picker Functions
@@ -111,30 +124,44 @@ export class AddfieldPage implements OnInit {
   // Crear cancha
   async createNewField(name, address, players, ruc, file){
     
-    console.log('file', file, 'value', file.value)
+    console.log('file', this.file, 'value', this.file.name)
 
-    // const newField = {
-    //   field_name: name.value,
-    //   latitude: Number(this.currentPosition.latitude),
-    //   longitud: Number(this.currentPosition.longitude),
-    //   max_players: players.value,
-    //   status: 'A',
-    //   availability: this.horarios,
-    //   address: address.value,
-    //   ruc: ruc.value,
-    // }
+    const newField = {
+      field_name: name.value,
+      latitude: Number(this.currentPosition.latitude),
+      longitud: Number(this.currentPosition.longitude),
+      max_players: Number(players.value),
+      status: 'A',
+      availability: this.horarios,
+      address: address.value,
+      ruc: ruc.value,
+    }
     
-    // const objField = await this.dataService.createNewField(newField);
+    const objField = await this.dataService.createNewField(newField);
 
-    // const uploadTask = this.storage.uploadFile(file.value, objField);
+    await this.dataService.updateUserById(this.currentUser.id, {
+      owned_fields: [...this.currentUser.owned_fields, objField]
+    })
+    
 
-    // uploadTask.then(res => {
-    //   console.log('Completed')
-    // })
+    const uploadTask = this.storage.uploadFile(this.file, objField);
+
+    uploadTask.then(async res => {
+      console.log('Completed');
+
+      const updateField = {
+        permit_url: await res.ref.getDownloadURL()
+      }
+
+      await this.dataService.updateFieldById(objField, updateField);
+
+      this.backButtonClick();
+    })
+
   }
 
   onChangeFile(event){
-    console.log('EVENT', event.target.files);
+    this.file = (event.target as HTMLInputElement).files[0];
   }
 
   backButtonClick(){

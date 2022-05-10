@@ -91,6 +91,12 @@ export class DataService {
 		console.log(fieldDocRef);
 		return fieldDocRef.id;
 	}
+	//Modify User Properties
+	updateFieldById(id, updateBody){
+		const fieldDocRef = doc(this.firestore, `fields/${id}`);
+		
+		return updateDoc(fieldDocRef, updateBody)
+	}
 
 	//Get nearby matches
 	getNearbyFields(lat, long, distance) {

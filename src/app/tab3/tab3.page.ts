@@ -31,11 +31,6 @@ export class Tab3Page {
     })
 
 
-    this.auth.currentUser.then(user => {
-      this.dataService.getUserById(user.uid).subscribe((user) => {
-        this.currentUser = user;
-      });
-    })
   }
 
 

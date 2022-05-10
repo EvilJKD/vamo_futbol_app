@@ -37,29 +37,15 @@ export class FbstorageService {
   }
 
 
-  async uploadFile(f: FileEntry, id){
-    const path = f.nativeURL.substr(0, f.nativeURL.lastIndexOf('/') + 1);
-    const type = this.getMimeType(f.name.split('.').pop());
-    const buffer = await this.file.readAsArrayBuffer(path, f.name);
-    const fileBlob = new Blob([buffer], type);
- 
-    const randomId = Math.random()
-      .toString(36)
-      .substring(2, 8);
- 
+  async uploadFile(f, id){
+
     const uploadTask = this.storage.upload(
       `files/${new Date().getTime()}_${id}`,
-      fileBlob
+      f
     );
  
       return uploadTask;
   }
 
-  getMimeType(fileExt) {
-    if (fileExt == 'wav') return { type: 'audio/wav' };
-    else if (fileExt == 'jpg') return { type: 'image/jpg' };
-    else if (fileExt == 'mp4') return { type: 'video/mp4' };
-    else if (fileExt == 'MOV') return { type: 'video/quicktime' };
-    else if (fileExt == 'pdf') return  {type: 'application/pdf'};
-  }
+
 }

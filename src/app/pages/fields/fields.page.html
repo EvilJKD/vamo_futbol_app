@@ -36,14 +36,14 @@
     <h4 class="poppins">Canchas</h4>
   </ion-text>
 
-  <ion-card class="myCard ion-no-margin card-especial" *ngFor="let card of [0,1,2,3]">
+  <ion-card class="myCard ion-no-margin card-especial" *ngFor="let field of fields">
     <img
       src="https://www.eluniverso.com/resizer/QmgcK3tMdjZk7VKvKL4N7MR9jaA=/1395x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/XEIAENUN2L4CESULTTKJJRXZPM.jpg"
       alt="">
     <div class="card-textOverlay">
       <div class="card-textDiv">
 
-        <h5 class="poppins ion-padding-horizontal fw-l">Cancha USFQ {{card+1}}</h5>
+        <h5 class="poppins ion-padding-horizontal fw-l">{{field.field_name}}</h5>
       </div>
     </div>
   </ion-card>
