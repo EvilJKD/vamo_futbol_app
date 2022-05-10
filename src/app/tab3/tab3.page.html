@@ -10,7 +10,7 @@
 
     <div class="centerVH ion-padding-vertical" style="text-align: center;">
       <div class="bgSelectedImg centerVH" style="column-gap: 10px;">
-        <img [src]="currentUser?currentUser.picture_url:'/assets/sampleAvatar.jpg'" class="currentImg" >
+        <img [src]="currentUser?currentUser.picture_url:'/assets/sampleAvatar.jpg'" class="currentImg">
         <ion-text color="light" class="ion-no-padding ion-no-margin smalltext">
           <p>{{currentUser?""+currentUser.first_name+" "+currentUser.last_name:'Usuario'}}</p>
           <ion-text style="color: var(--ion-color-darkgreen-tint);">
@@ -20,69 +20,76 @@
       </div>
     </div>
 
-    <div>
 
-      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+    <ion-button (click)="toggleEdit()" expand="block" fill="outline" shape="round">
+      Edit
+    </ion-button>
+
+    <div *ngIf="Show">
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
         <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Nombre</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.first_name: ''}}</h2>
+          <h3><b>Nombre </b></h3>
+          <ion-input type="text" placeholder="{{currentUser? currentUser.first_name: ''}}" #nombre></ion-input>
         </ion-label>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
         <ion-label class="ion-padding-bottom" color="gris">
           <h3><b>Apellido</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.last_name: ''}}</h2>
+          <ion-input type="text" placeholder="{{currentUser? currentUser.last_name: ''}}" #apellido></ion-input>
         </ion-label>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Phone Number</b></h3>
+          <ion-input type="text" placeholder="{{currentUser? currentUser.phone_number: ''}}" #numero></ion-input>
+        </ion-label>
+      </ion-item>
+      <ion-button (click)="onClickUpdate(nombre, apellido, numero)" (click)="toggleEdit()" expand="block" fill="solid" shape="round">
+        Guardar
+      </ion-button>
+    </div>
+
+    <div *ngIf="Edit">
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Nombre</b></h3>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.first_name: ''}}
+          </h2>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
+        <ion-label class="ion-padding-bottom" color="gris">
+          <h3><b>Apellido</b></h3>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.last_name: ''}}
+          </h2>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
         <ion-label class="ion-padding-bottom" color="gris">
           <h3><b>Email</b></h3>
           <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.email: ''}}</h2>
         </ion-label>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none"> 
+      <ion-item class="ion-no-padding ion-no-border" lines="none">
         <ion-label class="ion-padding-bottom" color="gris">
           <h3><b>Phone Number</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.phone_number: ''}}</h2>
+          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.phone_number: ''}}
+          </h2>
         </ion-label>
       </ion-item>
+
     </div>
 
-    <ion-list>
-      <ion-item no-lines (click)="toggleEdit()" class="content">
-        <ion-icon name="create" item-left class="sai"></ion-icon>     
-         Language 
-         <!-- <div class="english">
-           <span *ngIf="Edit">English</span> 
-           <ion-icon name="add" item-right *ngIf="Show" >
-             <h1>Hola</h1>
-           </ion-icon>
-           <ion-icon name="remove" item-right *ngIf="Edit">
-             <h1>Adios</h1>
-           </ion-icon>
-       </div> -->
-       
-     </ion-item>
-   </ion-list>
-  
-   <ion-button (click)="toggleEdit()" expand="block" fill="clear" shape="round">
-     Edit
-   </ion-button>
-
-   <div class=""  *ngIf="Show"><h1>Hola</h1></div>
-       <div class=""  *ngIf="Edit"><h1>Adios</h1></div>
-
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="round" expand="block" color="danger" fill="outline" class="ion-padding-vertical vh-btn"
+            (click)="logOut()">
+            SIGN OUT
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button shape="round" expand="block" color="danger" fill="outline" class="ion-padding-vertical vh-btn" (click)="logOut()">
-          SIGN OUT
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
   <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
 </ion-content>

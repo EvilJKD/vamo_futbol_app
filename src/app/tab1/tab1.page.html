@@ -23,7 +23,31 @@
     </ion-text>
 
 
-    <ul class="scroll">
+    <!-- identificador a ul, hacer click a los hijos. 
+      una funcion qu eal dar click, div cards onClick. Hacer Tootgle de la clase que sea selected.
+    -->
+    <!-- <ul class="horizontal" id="nav">
+      <li *ngFor="let state of states" (click)="setStateAsActive(state)">
+        <a [class.active]="state === activeState">
+          {{ state }}
+        </a>
+      </li>
+    </ul> -->
+
+    
+    <ul class="scroll" id="nav">
+      <div class="cards" *ngFor="let date of rangeOfDates" (click)="setDayAsActive(date.day)">
+        <div class="card" [class.active]="date.day == activeDate">
+          <div class="centra" >
+            <span class="number">{{date.day}}</span>
+            <span class="text">{{date.daySt}}</span>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <!-- Oficial -->
+    <!-- <ul class="scroll">
       <div class="cards" *ngFor="let date of rangeOfDates">
         <div class="card">
           <div class="centra">
@@ -32,81 +56,81 @@
           </div>
         </div>
       </div>
-    </ul>
-  
-
-  <ion-text color="dark">
-    <h4 class="poppins">Partidos</h4>
-  </ion-text>
+    </ul> -->
 
 
-  <!-- Mensaje de carga de pantalla -->
-  <ion-grid fixed class="ion-margin-top" *ngIf="!matches">
-    <ion-row>
-      <ion-col>
-        <ion-label class="ion-text-center">Buscando partidos cercanos...</ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-img src="assets/loading.svg"></ion-img>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ng-container *ngIf="matches?.length > 0 ">
-    <ion-card class="card-especial ion-no-margin" routerLink="/matches-detail/{{match.id}}"
-      *ngFor="let match of matches">
-      <ion-item color="marfil">
-        <ion-buttons slot="start">
-          <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
-          <ion-text>{{match.match_date|date:'MM/dd'}}</ion-text>
-        </ion-buttons>
-        <ion-card-title color="darkgreen">{{match.match_field.field_name}}</ion-card-title>
-      </ion-item>
-      <ion-footer>
-        <ion-row>
-          <ion-col>
-            <a>
-              <ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
-              <p class="color-azul">{{match.match_date | date:'mediumDate' }}<br />{{match.match_date |
-                date:'shortTime' }}</p>
-            </a>
-          </ion-col>
-          <ion-col>
-            <a class="color-azul">
-              <ion-icon name="time-outline" color="azul"></ion-icon>
-              <p class="color-azul">4km<br />2min</p>
-            </a>
-          </ion-col>
-          <!-- <ion-col>
-            <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
-              <p class="color-azul">Lat:{{match.match_field.latitud}}<br />Long:{{match.match_field.longitud}}</p></a>
-          </ion-col> -->
-          <ion-col>
-            <a class="color-azul">
-              <ion-icon name="location-outline" color="azul"></ion-icon>
-              <p class="color-azul">{{match.match_field.distance}}</p>
-            </a>
-          </ion-col>
-        </ion-row>
-      </ion-footer>
-    </ion-card>
-  </ng-container>
-  <ng-container *ngIf="matches?.length == 0">
-    <ion-grid fixed class="ion-margin-top">
+    <ion-text color="dark">
+      <h4 class="poppins">Partidos</h4>
+    </ion-text>
+
+
+    <!-- Mensaje de carga de pantalla -->
+    <ion-grid fixed class="ion-margin-top" *ngIf="!matches">
       <ion-row>
         <ion-col>
-          <ion-label class="ion-text-center">No encontramos partidos cerca</ion-label>
+          <ion-label class="ion-text-center">Buscando partidos cercanos...</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="12">
-          <ion-icon name="sad-outline"></ion-icon>
+          <ion-img src="assets/loading.svg"></ion-img>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ng-container>
-</div>
+    <ng-container *ngIf="matches?.length > 0 ">
+      <ion-card class="card-especial ion-no-margin" routerLink="/matches-detail/{{match.id}}"
+        *ngFor="let match of matches">
+        <ion-item color="marfil">
+          <ion-buttons slot="start">
+            <ion-icon slot="icon-only" name="person-circle"> </ion-icon>
+            <ion-text>{{match.match_date|date:'MM/dd'}}</ion-text>
+          </ion-buttons>
+          <ion-card-title color="darkgreen">{{match.match_field.field_name}}</ion-card-title>
+        </ion-item>
+        <ion-footer>
+          <ion-row>
+            <ion-col>
+              <a>
+                <ion-icon name="calendar-clear-outline" color="azul"></ion-icon>
+                <p class="color-azul">{{match.match_date | date:'mediumDate' }}<br />{{match.match_date |
+                  date:'shortTime' }}</p>
+              </a>
+            </ion-col>
+            <ion-col>
+              <a class="color-azul">
+                <ion-icon name="time-outline" color="azul"></ion-icon>
+                <p class="color-azul">4km<br />2min</p>
+              </a>
+            </ion-col>
+            <!-- <ion-col>
+            <a class="color-azul"><ion-icon name="time-outline" color="azul" ></ion-icon>
+              <p class="color-azul">Lat:{{match.match_field.latitud}}<br />Long:{{match.match_field.longitud}}</p></a>
+          </ion-col> -->
+            <ion-col>
+              <a class="color-azul">
+                <ion-icon name="location-outline" color="azul"></ion-icon>
+                <p class="color-azul">{{match.match_field.distance}}</p>
+              </a>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ng-container>
+    <ng-container *ngIf="matches?.length == 0">
+      <ion-grid fixed class="ion-margin-top">
+        <ion-row>
+          <ion-col>
+            <ion-label class="ion-text-center">No encontramos partidos cerca</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-icon name="sad-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ng-container>
+  </div>
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

@@ -350,10 +350,14 @@ h6{
     border-width: 1px; /* this allows you to adjust the thickness */
     border-style: solid;
     border-radius: 16px;
+    &:active {
+        background: #04764E;
+        border-color:#04764E;
+    }
     &:hover {
     background: #04764E;
     border-color:#04764E;
-    
+   
 
     .centra span{
         color:white;
