@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, OnDestroy} from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
@@ -7,16 +7,26 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import {Map, tileLayer, marker, polyline } from 'leaflet';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AlertController } from '@ionic/angular';
+import { map } from 'rxjs/operators';
+import { Subscription, interval } from 'rxjs';
+
 
 @Component({
   selector: 'app-matches-detail',
   templateUrl: './matches-detail.page.html',
   styleUrls: ['./matches-detail.page.scss'],
+
 })
 export class MatchesDetailPage implements OnInit {
 
   matchID: string = '';
   matchInfo: any;
+
+  fecha: string;
+  //fecha: string = 'May 20, 2022, 00:00:00';
+  //'May 20, 2022, 00:00:00'
+  //console.log('matchInfo.match_date');
+  
 
 
   currentUser: any;
@@ -27,6 +37,38 @@ export class MatchesDetailPage implements OnInit {
   marker: any;
   currentPosition: any;
 
+  private subscription: Subscription;
+  
+  public dateNow = new Date();
+  public dDay;
+  //public dDay = new Date('May 20, 2022, 00:00:00');
+  milliSecondsInASecond = 1000;
+  hoursInADay = 24;
+  minutesInAnHour = 60;
+  SecondsInAMinute  = 60;
+
+  public timeDifference;
+  public secondsToDday;
+  public minutesToDday;
+  public hoursToDday;
+  public daysToDday;
+  valueDate: string;
+  
+
+
+  private getTimeDifference () {
+      this.timeDifference = this.dDay.getTime() - new  Date().getTime();
+      this.allocateTimeUnits(this.timeDifference);
+  }
+
+private allocateTimeUnits (timeDifference) {
+      this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
+      this.minutesToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
+      this.hoursToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
+      this.daysToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay));
+}
+
+
   constructor(
     private location: Location, 
     private route: ActivatedRoute, 
@@ -36,13 +78,15 @@ export class MatchesDetailPage implements OnInit {
     private auth: AngularFireAuth) { }
 
   async ngOnInit() {
+    this.subscription = interval(1000)
+    .subscribe(x => { this.getTimeDifference(); });
+
     //User
     const user = await this.auth.currentUser;
     this.dataService.getUserById(user.uid).subscribe((user) => {
       this.currentUser = user;
+
     });
-
-
     
 
     //Control de inicializacion de mapas
@@ -57,6 +101,10 @@ export class MatchesDetailPage implements OnInit {
     await this.getMatchInfo();
 
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+ }
 
    async getMatchInfo(){
     this.dataService.getMatchById(this.matchID).subscribe((match) => {
@@ -89,6 +137,8 @@ export class MatchesDetailPage implements OnInit {
       } else {
         this.isRegistered = false;
       }
+
+      this.dDay = new Date(this.matchInfo.match_date);
       
 
       //Inicializacion del mapa
@@ -217,5 +267,7 @@ export class MatchesDetailPage implements OnInit {
     })
 
   }
+
+  
 
 }

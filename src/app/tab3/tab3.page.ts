@@ -30,13 +30,20 @@ export class Tab3Page {
       });
     })
 
+    
+  
+ 
 
-    this.auth.currentUser.then(user => {
-      this.dataService.getUserById(user.uid).subscribe((user) => {
-        this.currentUser = user;
-      });
-    })
   }
+
+  onClickUpdate(nombre, apellido, numero){
+
+    this.dataService.updateUserById(this.currentUser.id,{
+      first_name: nombre.value == ""?this.currentUser.first_name: nombre.value,
+      last_name: apellido.value == ""?this.currentUser.last_name: apellido.value,
+      phone_number: numero.value == ""?this.currentUser.phone_number: numero.value
+    })
+}
 
 
   logOut(){
@@ -48,8 +55,8 @@ export class Tab3Page {
     ).catch( err => {
       this.presentToast('ERROR', err.message, "close-circle-outline", "danger");
     });
+    
   }
-
 
 
   //Mostrat Toast

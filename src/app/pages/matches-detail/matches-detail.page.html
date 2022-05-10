@@ -15,6 +15,16 @@
       </ion-buttons>
       <ion-card-title style="margin-left: 13px;" color="darkgreen">{{matchInfo.match_field.field_name}}</ion-card-title>
     </ion-item>
+
+    <!-- <h1>End Date{{matchInfo.match_date | date:'shortDate'}}!</h1>
+    <h2>{{_days}}</h2>
+    <h2>{{_hours}}</h2>
+    <h2>{{_minutes}}</h2> -->
+  <!-- Days: {{_days}}, Hours: {{_hours}}, Minutes:{{_minutes}} -->
+
+  
+
+    <!-- <app-matches-detail enddate="'2022-09-22'"></app-matches-detail> -->
     <ion-footer style="padding: 10px;">
       <ion-row>
         <ion-col>
@@ -48,12 +58,15 @@
           <div class="space" style="padding: 10px">
             <h1 id="headline">Match Countdown</h1>
             <div id="countdown">
-              <ul>
-                <li><span id="days"></span>2 days</li>
-                <li><span id="hours"></span> 3 Hrs</li>
-                <li><span id="minutes"></span> 4 Mins</li>
-                <!-- <li><span id="seconds"></span> 1 Secs</li> -->
-              </ul>
+              <h1>Countdown</h1>
+              <!-- <p>{{matchInfo.match_date | date:'mediumDate' }}</p> -->
+            <div class="timer">
+              <!-- <h4> Count down timer </h4> -->
+              <span id="days"> {{daysToDday}} </span>Day(s)
+              <span id="hours"> {{hoursToDday}} </span>Hrs 
+              <span id="minutes"> {{minutesToDday}} </span>Min
+              <span id="seconds"> {{secondsToDday}} </span>S
+          </div>
             </div>
             <div id="content" class="emoji">
               <span>⚽️</span>
