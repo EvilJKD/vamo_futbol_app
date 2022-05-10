@@ -35,3 +35,17 @@ ion-select {
 .ipadding-bottom{
   padding-bottom: 11px;
 }
+
+
+.input-style-ion {
+  border: 1px solid #d7d7d7 !important;
+  border-radius: 5px;
+  padding: 10px 15px;
+  --padding-start: 9px !important;
+  --padding-end: 9px !important;
+  --padding-bottom: 15px !important;
+  --padding-top: 15px !important;
+  display: flex;
+  position: relative;
+  width: 100%;
+}

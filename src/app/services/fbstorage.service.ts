@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage} from '@angular/fire/compat/storage';
-import { File } from '@awesome-cordova-plugins/file/ngx';
+import { File, FileEntry } from '@awesome-cordova-plugins/file/ngx';
 import * as firebase from 'firebase/app';
 import 'firebase/storage'
 @Injectable({
@@ -35,4 +35,17 @@ export class FbstorageService {
 
     return task;
   }
+
+
+  async uploadFile(f, id){
+
+    const uploadTask = this.storage.upload(
+      `files/${new Date().getTime()}_${id}`,
+      f
+    );
+ 
+      return uploadTask;
+  }
+
+
 }
