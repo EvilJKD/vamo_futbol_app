@@ -21,6 +21,39 @@ export class Tab1Page {
   rangeOfDates: any[];
   matches;
   today;
+
+  activeState = 'Draft';
+
+  states = [
+    'Draft',
+    'Planned',
+    'Started',
+    'Suspended',
+    'Ended',
+  ]
+
+  setStateAsActive(state) {
+
+    console.log('state', state)
+    this.activeState = state;
+  }
+
+  activeDate = 'Draft';
+
+  // states = [
+  //   'Draft',
+  //   'Planned',
+  //   'Started',
+  //   'Suspended',
+  //   'Ended',
+  // ]
+
+  setDayAsActive(dia) {
+    console.log('dia', dia);
+    this.activeDate = dia;
+  }
+
+
   constructor(private dataService: DataService,
     private geolocation: Geolocation) { }
 

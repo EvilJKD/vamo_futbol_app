@@ -1,3 +1,19 @@
+.active{
+  position: relative;
+  display: inline-block;
+  border-color:#848A94;
+  border-width: 1px; /* this allows you to adjust the thickness */
+  border-style: solid;
+  border-radius: 16px;
+  background: #04764E;
+  border-color:#04764E;
+  border-radius: 16px;
+  color:white !important;
+}
+
+.active > .centra > span{
+  color:white !important;
+}
 .padding-uno {
   padding: 0px 28px;
 }
