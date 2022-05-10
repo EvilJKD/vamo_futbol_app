@@ -6,8 +6,8 @@
 </ion-toolbar>
 <ion-card class="nameCard" >
   <ion-item lines="none" >
-    <ion-label position="stacked" class="ion-padding-bottom ultrathin">Nombre</ion-label>
-    <ion-input type="text" placeholder="Cancha #1 | Lugar" class="ion-margin-vertical"></ion-input>
+    <ion-label position="stacked" class="ion-padding-bottom thin">Nombre</ion-label>
+    <ion-input type="text" placeholder="Cancha #1 | Lugar" class="ion-margin-vertical" #name></ion-input>
   </ion-item>
 </ion-card>
 
@@ -15,39 +15,70 @@
   <div class="ipadding">
 
  
-	<ion-button expand="block" color="darkgreen" class="poppins">
+	<ion-button expand="block" color="darkgreen" class="poppins" (click)="loadGeolocation()">
 		Ubicación Actual
 	</ion-button>
-  <ion-button expand="block" color="darkgreen" class="poppins" routerLink="/horarios">
-		Selección de Horarios
-	</ion-button>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-input type="number" placeholder="Lat." [value]="currentPosition? currentPosition.latitude: null" (ionChange)="updateLocation('lat', $event)" [debounce]="500"></ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <ion-input type="number" placeholder="Long." [value]="currentPosition? currentPosition.longitude: null" (ionChange)="updateLocation('long', $event)" [debounce]="500"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-item lines="none" class="ion-no-padding ionItem">
-    <ion-label position="stacked" class="ipadding-bottom ultrathin ion-no-margin ion-no-padding">Dirección</ion-label>
-    <ion-input type="text" placeholder="Av. Siempre Viva 123"></ion-input>
+    <ion-label position="stacked" class="ipadding-bottom thin ion-no-margin ion-no-padding">Dirección</ion-label>
+    <ion-input type="text" placeholder="Av. Siempre Viva 123" #address></ion-input>
   </ion-item>
 
   <ion-item lines="none" class="ion-no-padding ionItem">
-    <ion-label position="stacked" class="ipadding-bottom ultrathin">Cantidad de Jugadores</ion-label>
-    <ion-select placeholder="Escoge una modalidad" interface="popover">
-		<ion-select-option value="5v5">5 jugadores vs 5 jugadores</ion-select-option>
-		<ion-select-option value="7v7">7 jugadores vs 7 jugadores</ion-select-option>
-		<ion-select-option value="9v9">9 jugadores vs 9 jugadores</ion-select-option>
+    <ion-label position="stacked" class="ipadding-bottom thin">Cantidad de Jugadores</ion-label>
+    <ion-select placeholder="Escoge una modalidad" interface="popover" #players>
+		<ion-select-option value=10>5 jugadores vs 5 jugadores</ion-select-option>
+		<ion-select-option value=14>7 jugadores vs 7 jugadores</ion-select-option>
+		<ion-select-option value=18>9 jugadores vs 9 jugadores</ion-select-option>
 	</ion-select>
   </ion-item>
 
+
+  <ion-list >
+    <ion-list-header>
+      <ion-label class="thin">Selección de Horarios</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let h of horarios; index as i" (click)="removeFromHorarios(i)" lines="none">
+      <ion-icon slot="end" name="close-circle" color="darkgreen" size="large"></ion-icon>
+      <ion-label>{{h.Days.text}} {{h.Hours.text}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-fab-button slot="end" (click)="openPicker()" [disabled]="horarios.length >= 5" size="small">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+    
+    
+    
+  </ion-list>
+
+
   <ion-item lines="none" class="ion-no-padding ionItem" >
-    <ion-label position="stacked" class="ipadding-bottom ultrathin">RUC</ion-label>
-    <ion-input type="number" placeholder="1111111111001" inputmode="numeric"></ion-input>
+    <ion-label position="stacked" class="ipadding-bottom thin">RUC</ion-label>
+    <ion-input type="number" placeholder="1111111111001" inputmode="numeric" #ruc></ion-input>
   </ion-item>
   
   <ion-item lines="none" class="ion-no-padding ionItem" >
-    <ion-label position="stacked" class="ipadding-bottom ultrathin">Certificado de propiedad</ion-label>
-    <ion-input type="file" placeholder="Certificado.pdf"></ion-input>
+    <ion-label position="stacked" class="ipadding-bottom thin">Certificado de propiedad</ion-label>
+    <!-- <ion-input class="input-style-ion" type="file" #file (ionChange)="onChangeFile($event)"></ion-input> -->
+    <ion-input type="text" placeholder="Selecciona una archivo" disabled=""></ion-input>
+    <ion-button> </ion-button>
   </ion-item>
 
   <div class=" ion-no-padding" style="text-align: center; height: fit-content;">
-    <ion-button expand="block" shape="round" color="darkgreen" style="margin-top: 10%;" class="ion-padding-vertical vh-btn">
+    <ion-button expand="block" shape="round" color="darkgreen" style="margin-top: 10%;" class="ion-padding-vertical vh-btn" (click)="createNewField(name, address, players, ruc, file)">
     Enviar Solicitud de Aprovación
     </ion-button>
     <ion-text color="medium">
