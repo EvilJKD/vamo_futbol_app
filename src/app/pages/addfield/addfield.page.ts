@@ -135,7 +135,7 @@ export class AddfieldPage implements OnInit {
       field_name: name.value,
       latitud,
       longitud,
-      geohash: geohash(latitud, longitud),
+      geohash: geohash.encode(latitud, longitud),
       max_players: Number(players.value),
       status: 'A',
       availability: this.horarios,

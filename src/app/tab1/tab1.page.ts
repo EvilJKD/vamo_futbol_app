@@ -50,6 +50,13 @@ export class Tab1Page {
 
   setDayAsActive(dia) {
     console.log('dia', dia);
+
+    const fecha = this.rangeOfDates.find(date => {
+      return date.day == dia;
+    })
+
+    console.log('fecha', fecha)
+
     this.activeDate = dia;
   }
 
