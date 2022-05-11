@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
 
   <div class="ipadding centerV">
 
@@ -25,57 +25,50 @@
       Edit
     </ion-button>
 
+    <!-- DATOS  -->
     <div *ngIf="Show">
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Nombre </b></h3>
-          <ion-input type="text" placeholder="{{currentUser? currentUser.first_name: ''}}" #nombre></ion-input>
-        </ion-label>
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Nombre</ion-label>
+        <ion-input type="text" placeholder="{{currentUser? currentUser.first_name: ''}}" #nombre></ion-input>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Apellido</b></h3>
-          <ion-input type="text" placeholder="{{currentUser? currentUser.last_name: ''}}" #apellido></ion-input>
-        </ion-label>
+
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Apellido</ion-label>
+        <ion-input type="text" placeholder="{{currentUser? currentUser.last_name: ''}}" #apellido></ion-input>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Phone Number</b></h3>
-          <ion-input type="text" placeholder="{{currentUser? currentUser.phone_number: ''}}" #numero></ion-input>
-        </ion-label>
+
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Numero de teléfono</ion-label>
+        <ion-input type="text" placeholder="{{currentUser? currentUser.phone_number: ''}}" #numero></ion-input>
       </ion-item>
-      <ion-button (click)="onClickUpdate(nombre, apellido, numero)" (click)="toggleEdit()" expand="block" fill="solid" shape="round">
+
+      <ion-button (click)="onClickUpdate(nombre, apellido, numero)" (click)="toggleEdit()" expand="block" fill="solid"
+        shape="round">
         Guardar
       </ion-button>
     </div>
 
+    <!-- EDITAR DATOS -->
     <div *ngIf="Edit">
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Nombre</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.first_name: ''}}
-          </h2>
-        </ion-label>
+
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Nombre</ion-label>
+        <ion-text>{{currentUser? currentUser.first_name: ''}}</ion-text>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Apellido</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.last_name: ''}}
-          </h2>
-        </ion-label>
+
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Apellido</ion-label>
+        <ion-text>{{currentUser? currentUser.last_name: ''}}</ion-text>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Email</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.email: ''}}</h2>
-        </ion-label>
+
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Numero de teléfono</ion-label>
+        <ion-text>{{currentUser? currentUser.phone_number: ''}}</ion-text>
       </ion-item>
-      <ion-item class="ion-no-padding ion-no-border" lines="none">
-        <ion-label class="ion-padding-bottom" color="gris">
-          <h3><b>Phone Number</b></h3>
-          <h2 style="margin-inline: 20px; font-size: larger; color:black;">{{currentUser? currentUser.phone_number: ''}}
-          </h2>
-        </ion-label>
+
+      <ion-item class="ion-no-padding ion-no-border">
+        <ion-label position="stacked" color="gris">Correo Electrónico</ion-label>
+        <ion-text>{{currentUser? currentUser.email: ''}}</ion-text>
       </ion-item>
 
     </div>
