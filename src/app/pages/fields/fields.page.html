@@ -5,7 +5,7 @@
       <ion-item lines="none" color="none">
         <ion-text class="ion-padding">
           <h6 class="poppins fw-l"><br>Agrega tus canchas</h6>
-          <h3 class="poppins fw-sb">Adrian</h3>
+          <h3 class="poppins fw-sb">{{currentUser?currentUser.first_name:"Usuario"}}</h3>
         </ion-text>
         
       </ion-item>
@@ -36,7 +36,7 @@
     <h4 class="poppins">Canchas</h4>
   </ion-text>
 
-  <ion-card class="myCard ion-no-margin card-especial" *ngFor="let field of fields">
+  <ion-card class="myCard ion-no-margin card-especial" *ngFor="let field of fields" routerLink="/field-details/{{field.id}}">
     <img
       src="https://www.eluniverso.com/resizer/QmgcK3tMdjZk7VKvKL4N7MR9jaA=/1395x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/XEIAENUN2L4CESULTTKJJRXZPM.jpg"
       alt="">
@@ -66,7 +66,6 @@
 </ion-card>
 </div>
 
-  
 
 
 </ion-content>

@@ -433,3 +433,8 @@ h6{
   .bg-transparent {
     background: transparent;
   }
+
+  .list-header {
+    --background: var(--ion-color-darkgreen) !important;
+    --color: var(--ion-color-darkgreen-contrast) !important;
+  }

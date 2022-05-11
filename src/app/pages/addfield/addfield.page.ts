@@ -9,6 +9,9 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { DataService } from 'src/app/services/data.service';
 import { FbstorageService } from 'src/app/services/fbstorage.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+//GEOHASH PARA PROXIMIDAD
+import geohash from "ngeohash";
+
 
 @Component({
   selector: 'app-addfield',
@@ -126,10 +129,13 @@ export class AddfieldPage implements OnInit {
     
     console.log('file', this.file, 'value', this.file.name)
 
+    const latitud = Number(this.currentPosition.latitude);
+    const longitud = Number(this.currentPosition.longitude);
     const newField = {
       field_name: name.value,
-      latitude: Number(this.currentPosition.latitude),
-      longitud: Number(this.currentPosition.longitude),
+      latitud,
+      longitud,
+      geohash: geohash(latitud, longitud),
       max_players: Number(players.value),
       status: 'A',
       availability: this.horarios,

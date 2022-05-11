@@ -71,7 +71,12 @@ const routes: Routes = [
     path: 'password-reset',
     loadChildren: () => import('./pages/password-reset/password-reset.module').then( m => m.PasswordResetPageModule),
     ...canActivate(redirectLoggedInToMain)
+  },
+  {
+    path: 'field-details/:id',
+    loadChildren: () => import('./pages/field-details/field-details.module').then( m => m.FieldDetailsPageModule)
   }
+
 
 ];
 @NgModule({
