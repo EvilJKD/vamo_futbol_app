@@ -75,6 +75,10 @@ const routes: Routes = [
   {
     path: 'field-details/:id',
     loadChildren: () => import('./pages/field-details/field-details.module').then( m => m.FieldDetailsPageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   }
 
 

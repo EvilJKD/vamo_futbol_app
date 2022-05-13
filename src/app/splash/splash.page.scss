@@ -1,0 +1,13 @@
+ion-content{
+    --background: #04764e;
+}
+@-webkit-keyframes slide-in-top{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);opacity:0}100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@keyframes slide-in-top{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);opacity:0}100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}
+.container{
+    -webkit-animation:slide-in-top 1.3s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-top 1.3s cubic-bezier(.25,.46,.45,.94) both;
+    ion-img{
+        height: 300px;
+        margin-top: 60%;
+    
+    }
+    
+}
