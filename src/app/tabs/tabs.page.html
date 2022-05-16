@@ -1,20 +1,73 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="partidos">
-      <ion-icon name="football-outline"></ion-icon>
-      <ion-label>Matches</ion-label>
-    </ion-tab-button>
+  <ion-footer>  
+    <!-- <ion-toolbar> -->
+      
 
-    <ion-tab-button tab="historial">
-      <ion-icon name="calendar-outline"></ion-icon>
-      <ion-label>History</ion-label>
-    </ion-tab-button>
 
-    <ion-tab-button tab="perfil">
-      <ion-icon name="person-outline"></ion-icon>
-      <ion-label>Profile</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
+
+
+        <ion-row>
+          <ion-col  size="4">
+            <ion-tab-button tab="historial">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <ion-label>Historial</ion-label>
+            </ion-tab-button>
+          </ion-col>
+
+          <!-- <ion-col  size="4">
+            <ion-tab-button tab="historial">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <ion-label>History</ion-label>
+            </ion-tab-button>
+          </ion-col> -->
+      
+          <ion-col size="4">
+            <ion-tab-button tab="partidos" class="partidos">
+              <ion-img src="assets/pinShape.svg"></ion-img>
+            </ion-tab-button>
+            
+          </ion-col>
+<!--       
+          <ion-col  size="2">
+            <ion-button  color="dark">
+              <ion-icon slot="icon-only" name="document-outline"></ion-icon>
+              
+            </ion-button>
+          </ion-col> -->
+      
+          <ion-col  size="4">
+            <ion-tab-button tab="perfil">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-label>Perfil</ion-label>
+            </ion-tab-button>
+          </ion-col>
+        </ion-row>
+          <!-- </ion-toolbar> -->
+  </ion-footer>
 
 </ion-tabs>
+
+
+<!-- adentro de ion tabs 
+<ion-tab-bar slot="bottom">
+    
+
+  <ion-tab-button tab="historial">
+    <ion-icon name="calendar-outline"></ion-icon>
+    <ion-label>History</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="partidos" class="partidos">
+    <ion-icon name="football-outline"></ion-icon>
+    <ion-label>Matches</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="perfil">
+    <ion-icon name="person-outline"></ion-icon>
+    <ion-label>Profile</ion-label>
+  </ion-tab-button>
+
+
+  
+</ion-tab-bar> -->
