@@ -23,10 +23,6 @@ export class MatchesDetailPage implements OnInit {
   matchInfo: any;
 
   fecha: string;
-  //fecha: string = 'May 20, 2022, 00:00:00';
-  //'May 20, 2022, 00:00:00'
-  //console.log('matchInfo.match_date');
-  
 
 
   currentUser: any;
@@ -157,6 +153,12 @@ private allocateTimeUnits (timeDifference) {
   }
   
   showMap(currentPosition) {
+    
+    if (this.map) {
+      this.map.off();
+      this.map.remove();
+    }
+
     this.map = new Map('mapaCancha').setView(currentPosition, 10);
     tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
 

@@ -9,6 +9,8 @@ import { distanceBetweenTwoPoints } from '../helpers/utils'
 
 import 'dayjs'
 import * as dayjs from 'dayjs';
+import { ModalController } from '@ionic/angular';
+import { dismiss } from '@ionic/core/dist/types/utils/overlays';
 
 @Component({
   selector: 'app-tab1',
@@ -20,7 +22,10 @@ export class Tab1Page {
   currentUser: any;
   rangeOfDates: any[];
   matches;
-  today;
+  today: any;
+  filteredMatches: any;
+  
+  selectedDate;
 
   activeState = 'Draft';
 
@@ -48,21 +53,37 @@ export class Tab1Page {
   //   'Ended',
   // ]
 
+  changeDatetimePicker(date){
+    const cDate = date.value.split('T')[0]
+    const dateParts = cDate.split('-')
+    this.changeDateScroll(dateParts[2], dateParts[1], dateParts[0]);
+
+    this.dismissModal();
+  }
+
+  changeDateScroll(day, month, year){
+
+    this.filteredMatches = null;
+
+    this.setDayAsActive(`${day}`);
+
+    this.filterDates(`${year}-${month}-${day}`)
+  }
+
   setDayAsActive(dia) {
-    console.log('dia', dia);
 
     const fecha = this.rangeOfDates.find(date => {
       return date.day == dia;
     })
 
-    console.log('fecha', fecha)
-
     this.activeDate = dia;
   }
 
 
-  constructor(private dataService: DataService,
-    private geolocation: Geolocation) { }
+  constructor(
+    private dataService: DataService,
+    private geolocation: Geolocation,
+    private modalController: ModalController) { }
 
   async ngOnInit() {
     //Fecha Minima para el picker
@@ -90,7 +111,12 @@ export class Tab1Page {
       }
       this.dataService.getMatchesByFields(fieldsIds).subscribe((matches) => {
         this.matches = this.populateMatches(matches, { lat: latitude, long: longitude })
+
+        this.filterDates(this.today)
+        this.setDayAsActive(this.today.split('-')[2])
+
       });
+
     });
 
     //Hardcoded pero depende del usuario
@@ -155,5 +181,25 @@ export class Tab1Page {
 
     return dates
 
+  }
+
+  filterDates(date){
+    const currentDate = dayjs(date);
+
+    this.filteredMatches = this.matches.filter(x => {
+      const matchDate = dayjs(x.match_date);
+
+      return matchDate.isSame(currentDate, "day");
+    })
+  }
+
+
+  
+
+  // Modal
+  dismissModal() {
+    this.modalController.dismiss({
+      'dismissed': true
+    });
   }
 }

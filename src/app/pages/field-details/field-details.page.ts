@@ -102,7 +102,7 @@ export class FieldDetailsPage implements OnInit {
     const matchId = await this.dataService.createNewMatch(newMatch);
 
     console.log('MatchId', matchId);
-
+    this.dismiss();
   }
 
 

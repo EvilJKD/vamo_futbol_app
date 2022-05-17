@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Vamo_FutbolApp',
+  appId: 'dage.ionic.vamo',
+  appName: 'Vamo\'',
   webDir: 'www',
   bundledWebRuntime: false
 };
